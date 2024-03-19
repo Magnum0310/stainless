@@ -113,12 +113,12 @@ const ServiceCard = () => {
               />
             </div>
             <div className="text-lg font-Alfa my-3 flex justify-center">
-              <span className="" value={index}>
+              <span className=" tracking-wider" value={index}>
                 {service.title}
               </span>
             </div>
           </div>
-          <div className=" h-1/2 flex bg-green-500">
+          <div className=" h-1/2 flex ">
             <p className="text-sm text-center font-Belgrano" value={index}>
               {service.description}
             </p>
