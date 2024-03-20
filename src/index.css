@@ -6,7 +6,7 @@
 
 @layer components {
   .containerBox {
-    @apply w-[1440px];
+    @apply w-[100%];
   }
 }
 @layer utilities {

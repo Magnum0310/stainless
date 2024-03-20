@@ -4,11 +4,13 @@ const ChooseUsPage = () => {
   return (
     <div className="relative h-full w-full overflow-hidden">
       <div className=" h-full w-3/4 absolute top-0 right-0 ">
-        <img src={Weld01} className=" h-full" />
+        <img src={Weld01} className=" h-full w-full" />
       </div>
-      <div class="relative border-x-[720px] border-y-[360px] border-transparent border-b-bgPrimary border-l-bgPrimary scale-y-[3.5]" />
-      <div className="absolute z-10 top-0 w-[65%] padding h-full">
-        <p className=" text-4xl font-Alfa text-orangeColor">Why Choose Us:</p>
+      <div class="relative border-x-[820px] border-y-[300px] border-transparent border-b-bgPrimary border-l-bgPrimary scale-y-[3.5]" />
+      <div className="absolute z-10 top-0 w-[65%] padding h-full padding-x">
+        <p className=" text-4xl font-Alfa text-orangeColor w-max">
+          Why Choose Us:
+        </p>
         <div className="mt-10 w-[65%]">
           <p className=" text-2xl font-Alfa text-orangeColor tracking-wide">
             Quality Craftsmanship:
@@ -28,7 +30,7 @@ const ChooseUsPage = () => {
             preferences.
           </p>
         </div>
-        <div className="mt-10 w-[95%]">
+        <div className="mt-10 w-full">
           <p className=" text-2xl font-Alfa text-orangeColor tracking-wide">
             Reliability:
           </p>
@@ -39,6 +41,11 @@ const ChooseUsPage = () => {
           </p>
         </div>
       </div>
+      <div className=" bg-darkGray top-12 bottom-64 left-0 w-[8%] text-white text-2xl absolute"></div>
+      <div className="bg-lightGray z-10 opacity-40 bottom-0 top-[450px] w-[18%] left-96  text-white text-2xl absolute"></div>
+      <div className="bg-darkGray opacity-40 bottom-0 top-[550px] w-[18%] left-[550px] text-white text-2xl absolute"></div>
+      <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
     </div>
   );
 };

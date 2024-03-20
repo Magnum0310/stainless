@@ -93,7 +93,7 @@ const ServiceCard = () => {
     <>
       {services.map((service, index) => (
         <div
-          className="text-white bg-bgCard  w-[300px] h-[250px] padding-card hover:bg-orangeColor hover:text-black"
+          className="text-white bg-bgCard w-[280px] h-[250px] padding-card hover:bg-orangeColor hover:text-black"
           key={index}
           onMouseEnter={handleStartHover}
           onMouseLeave={handleEndHover}
