@@ -93,13 +93,17 @@ const ServiceCard = () => {
     <>
       {services.map((service, index) => (
         <div
-          className="text-white bg-bgCard w-[280px] h-[250px] padding-card hover:bg-orangeColor hover:text-black"
+          // className="text-white bg-bgCard h-[300px] flex flex-col flex-grow w-[300px] padding-card hover:bg-orangeColor hover:text-black mx-5"
+          className="relative text-white bg-bgCard padding-card hover:bg-orangeColor hover:text-black w-[300px]  flex-grow flex flex-col max-desktop:ml-0 mx-5 my-5"
           key={index}
           onMouseEnter={handleStartHover}
           onMouseLeave={handleEndHover}
           value={index}
         >
-          <div value={index} className=" w-full items-center justify-center">
+          <div
+            value={index}
+            className="w-full items-center justify-center pt-10"
+          >
             <div
               className="h-10 w-28 flex items-center mx-auto my-5"
               value={index}
@@ -118,7 +122,7 @@ const ServiceCard = () => {
               </span>
             </div>
           </div>
-          <div className=" h-1/2 flex ">
+          <div className="flex flex-grow items-center">
             <p className="text-sm text-center font-Belgrano" value={index}>
               {service.description}
             </p>

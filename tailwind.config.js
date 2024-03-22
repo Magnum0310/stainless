@@ -15,6 +15,10 @@ export default {
         Alfa: ["Alfa Slab One", "serif"],
         Belgrano: ["Belgrano", "serif"],
       },
+      screens: {
+        desktop: "1600px",
+        // => @media (min-width: 1280px) { ... }
+      },
     },
   },
   plugins: [],

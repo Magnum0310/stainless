@@ -6,7 +6,7 @@ const ChooseUsPage = () => {
       <div className=" h-full w-3/4 absolute top-0 right-0 ">
         <img src={Weld01} className=" h-full w-full" />
       </div>
-      <div class="relative border-x-[820px] border-y-[300px] border-transparent border-b-bgPrimary border-l-bgPrimary scale-y-[3.5]" />
+      <div class="relative border-x-[950px] border-y-[300px] border-transparent border-b-bgPrimary border-l-bgPrimary scale-y-[3.5]" />
       <div className="absolute z-10 top-0 w-[65%] padding h-full padding-x">
         <p className=" text-4xl font-Alfa text-orangeColor w-max">
           Why Choose Us:
