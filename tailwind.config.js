@@ -17,6 +17,7 @@ export default {
       },
       screens: {
         desktop: "1600px",
+        mdDesktop: "1200px",
         // => @media (min-width: 1280px) { ... }
       },
     },
