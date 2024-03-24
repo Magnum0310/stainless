@@ -93,44 +93,59 @@ const ServiceCard = () => {
     <>
       {services.map((service, index) => (
         <div
-          // className="text-white bg-bgCard h-[300px] flex flex-col flex-grow w-[300px] padding-card hover:bg-orangeColor hover:text-black mx-5"
           // Now adding responsive for 1280px screens
-          className="relative text-white bg-bgCard padding-card  hover:bg-orangeColor  hover:text-black w-[300px] max-desktop:w-[385px] max-xl:bg-red-500 max-xl:w-[457px] flex-grow flex flex-col max-desktop:ml-0 mx-5 my-5"
+          className="relative text-white  hover:bg-orangeColor hover:text-black gap-5 w-[350px] max-desktop:w-[385px] max-xl:bg-red-500  bg-gradient-to-b from-blue-300 to-pink-300 max-desktop:ml-0"
           key={index}
           onMouseEnter={handleStartHover}
           onMouseLeave={handleEndHover}
           value={index}
         >
-          <div
-            value={index}
-            className="w-full items-center justify-center pt-10 max-desktop:flex max-desktop:flex-col"
-          >
-            <div
-              className="h-10 w-28 flex items-center mx-auto my-5  max-desktop:h-16"
-              value={index}
-            >
-              <img
-                src={
-                  hover & (cardIndex === index) ? service.active : service.icon
-                }
-                className="w-full h-full"
+          {/* <div
+          // Now adding responsive for 1280px screens
+          className="relative text-white padding-card hover:bg-orangeColor hover:text-black gap-5 w-[350px] max-desktop:w-[385px] max-xl:bg-red-500 justify-center bg-gradient-to-b from-blue-300 to-pink-300 flex flex-col max-desktop:ml-0"
+          key={index}
+          onMouseEnter={handleStartHover}
+          onMouseLeave={handleEndHover}
+          value={index}
+        > */}
+          {/* <div className="bg-gradient-to-b from-blue-300 to-pink-300 h-[300px] p-1"> */}
+          <div className="h-full flex items-center justify-center">
+            <div className="h-[98%] w-[98%] bg-bgCard flex flex-col items-center justify-center">
+              <div
                 value={index}
-              />
-            </div>
-            <div className="text-lg font-Alfa my-3 flex justify-center max-desktop:text-xl">
-              <span className=" tracking-wider" value={index}>
-                {service.title}
-              </span>
+                className="w-full items-center justify-center "
+              >
+                <div
+                  className="h-10 w-28 flex items-center mx-auto max-desktop:h-16"
+                  value={index}
+                >
+                  <img
+                    src={
+                      hover & (cardIndex === index)
+                        ? service.active
+                        : service.icon
+                    }
+                    className="w-full h-full"
+                    value={index}
+                  />
+                </div>
+                <div className="text-lg font-Alfa my-3 flex justify-center max-desktop:text-xl">
+                  <span className=" tracking-wider" value={index}>
+                    {service.title}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <p
+                  className="text-sm text-left font-Belgrano max-desktop:text-lg max-desktop:text-[16px] max-desktop:leading-6"
+                  value={index}
+                >
+                  {service.description}
+                </p>
+              </div>
             </div>
           </div>
-          <div className="flex flex-grow items-center max-desktop:items-start max-desktop:mt-14">
-            <p
-              className="text-sm text-left font-Belgrano max-desktop:text-lg max-desktop:text-[16px] max-desktop:leading-6"
-              value={index}
-            >
-              {service.description}
-            </p>
-          </div>
+          {/* <div className="h-full bg-black">TEST</div> */}
         </div>
       ))}
     </>

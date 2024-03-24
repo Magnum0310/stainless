@@ -41,7 +41,7 @@ const ServicesPage = () => {
           Next
         </button>
         <motion.div
-          className="flex flex-wrap justify-center pl-5 py-10 h-full max-desktop:overflow-hidden max-desktop:inline-flex max-desktop:flex-nowrap"
+          className="flex flex-wrap gap-y-5 gap-x-5 justify-center py-10 h-full max-desktop:pl-10 max-desktop:overflow-hidden max-desktop:inline-flex max-desktop:flex-nowrap"
           animate={{ translateX: `-${cardIndex * 24.9}%` }}
         >
           <ServiceCard />
