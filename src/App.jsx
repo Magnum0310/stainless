@@ -6,20 +6,20 @@ import ContactPage from "./components/ContactPage";
 
 function App() {
   return (
-    <main className="flex relative justify-center flex-col items-center">
-      <div className="relative containerBox">
+    <main className="snap-y snap-mandatory">
+      <div className="containerBox relative">
         <Navbar />
       </div>
-      <div className="containerBox h-screen">
+      <div className="containerBox h-screen snap-start">
         <LandingPage />
       </div>
-      <div className="containerBox h-screen">
+      <div className="containerBox h-screen snap-start">
         <ServicesPage />
       </div>
-      <div className="containerBox h-screen">
+      <div className="containerBox h-screen snap-start">
         <ChooseUsPage />
       </div>
-      <div className="containerBox h-screen">
+      <div className="containerBox h-screen snap-start">
         <ContactPage />
       </div>
     </main>

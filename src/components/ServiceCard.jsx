@@ -92,12 +92,11 @@ const ServiceCard = () => {
   return (
     <>
       {services.map((service, index) => (
+        // OUTER CARD
         <div
           // Now adding responsive for 1280px screens
-          className="relative text-white  hover:bg-orangeColor hover:text-black gap-5 w-[350px] max-desktop:w-[385px] max-xl:bg-red-500  bg-gradient-to-b from-blue-300 to-pink-300 max-desktop:ml-0"
+          className="relative text-white flex items-center hover:rounded-xl justify-center group  hover:bg-gradient-to-t hover:from-zinc-900 hover:to-stone-400  hover:text-black gap-5 w-[350px] max-desktop:w-[385px] max-xl:bg-red-500 bg-gradient-to-t from-orange-500 via-amber-300 to-amber-200 max-desktop:ml-0"
           key={index}
-          onMouseEnter={handleStartHover}
-          onMouseLeave={handleEndHover}
           value={index}
         >
           {/* <div
@@ -109,8 +108,18 @@ const ServiceCard = () => {
           value={index}
         > */}
           {/* <div className="bg-gradient-to-b from-blue-300 to-pink-300 h-[300px] p-1"> */}
-          <div className="h-full flex items-center justify-center">
-            <div className="h-[98%] w-[98%] bg-bgCard flex flex-col items-center justify-center">
+          {/* INNER CARD */}
+          <div
+            className="flex items-center justify-center h-[98%] w-[98%]"
+            value={index}
+          >
+            {/* INNER MOST CARD */}
+            <div
+              className="h-[98%] w-[98%] flex flex-col items-center justify-center px-5 group-hover:rounded-xl group-hover:bg-orangeColor bg-bgCard"
+              onMouseEnter={handleStartHover}
+              onMouseLeave={handleEndHover}
+              value={index}
+            >
               <div
                 value={index}
                 className="w-full items-center justify-center "
@@ -126,7 +135,6 @@ const ServiceCard = () => {
                         : service.icon
                     }
                     className="w-full h-full"
-                    value={index}
                   />
                 </div>
                 <div className="text-lg font-Alfa my-3 flex justify-center max-desktop:text-xl">
