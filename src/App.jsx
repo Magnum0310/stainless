@@ -6,20 +6,21 @@ import ContactPage from "./components/ContactPage";
 
 function App() {
   return (
-    <main className="snap-y snap-mandatory">
+    // <main className="h-screen snap-y snap-proximity overflow-y-auto scroll-smooth border-4 border-solid border-red-500">
+    <main className="h-screen  border-4 border-solid">
       <div className="containerBox relative">
         <Navbar />
       </div>
-      <div className="containerBox h-screen snap-start">
+      <div className="containerBox h-screen">
         <LandingPage />
       </div>
-      <div className="containerBox h-screen snap-start">
+      <div className="containerBox h-screen">
         <ServicesPage />
       </div>
-      <div className="containerBox h-screen snap-start">
+      <div className="containerBox h-screen">
         <ChooseUsPage />
       </div>
-      <div className="containerBox h-screen snap-start">
+      <div className="containerBox h-screen">
         <ContactPage />
       </div>
     </main>

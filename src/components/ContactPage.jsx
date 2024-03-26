@@ -12,7 +12,7 @@ const ContactPage = () => {
     animate: {
       opacity: 1,
       translateX: 0,
-      transition: { duration: 1, ease: "easeInOut" },
+      transition: { duration: 1.5, ease: "easeInOut" },
     },
   };
   const bottomSvgVariants = {
@@ -23,7 +23,7 @@ const ContactPage = () => {
     animate: {
       opacity: 1,
       translateX: 0,
-      transition: { duration: 1, ease: "easeInOut" },
+      transition: { duration: 1.5, ease: "easeInOut" },
     },
   };
   const pathVariants = {
