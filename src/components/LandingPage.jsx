@@ -4,32 +4,49 @@ import Weld01 from "../assets/images/weld_02.jpg";
 
 const LandingPage = () => {
   const bgVariants = {
-    initial: { y: 10, opacity: 0 },
+    initial: { y: 5, opacity: 0 },
     animate: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.3,
-        ease: "easeIn",
-        staggerChildren: 0.3,
+        duration: 0.5,
+        delay: 0.2,
+        ease: "easeInOut",
+        staggerChildren: 0.1,
         delayChildren: 0.5,
       },
     },
   };
 
   const textVariants = {
-    initial: { y: 5, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
+    initial: { y: 10, opacity: 0, transition: { duration: 1 } },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
+    },
   };
-  const otherTextVariants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
+
+  const navVariants = {
+    initial: { y: -10, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.8,
+        duration: 0.3,
+        staggerChildren: 0.2,
+        delayChildren: 1,
+      },
+    },
   };
 
   return (
     <>
       <div
-        className="padding-x relative flex h-screen w-full  items-center justify-center bg-gradient-to-r from-slate-900 via-slate-100 to-slate-900 bg-cover bg-center"
+        className="padding-x w- relative flex h-screen items-center justify-center bg-gradient-to-r from-slate-900 via-slate-100 to-slate-900 bg-cover bg-center"
         style={{
           backgroundImage: `url(${Weld01})`,
           backgroundSize: "",
@@ -37,18 +54,56 @@ const LandingPage = () => {
         }}
       >
         <motion.div
+          variants={navVariants}
+          initial="initial"
+          animate="animate"
+          className="padding-nav padding-x absolute top-0 z-10 flex w-full justify-between bg-gray-800 font-Alfa text-xl text-white"
+        >
+          <div>LOGO</div>
+          <ul className="flex gap-5 ">
+            <motion.li
+              variants={textVariants}
+              className="cursor-pointer px-5 hover:text-orangeColor"
+            >
+              Services
+            </motion.li>
+            <motion.li
+              variants={textVariants}
+              className="cursor-pointer px-5 hover:text-orangeColor"
+            >
+              About Us
+            </motion.li>
+            <motion.li
+              variants={textVariants}
+              className="cursor-pointer px-5 hover:text-orangeColor"
+            >
+              Contact Us
+            </motion.li>
+          </ul>
+        </motion.div>
+
+        <motion.div
           variants={bgVariants}
           initial="initial"
           animate="animate"
-          className="containerBox border-[15px] border-solid border-orangeColor font-bold text-white"
+          className="w-[90%] border-[10px] border-solid border-orangeColor font-bold text-white"
         >
           <div className="padding relative flex h-full w-full flex-col items-center gap-5 bg-black bg-opacity-75">
-            <motion.p
-              variants={textVariants}
-              className="font-Alfa text-8xl tracking-wider text-white"
-            >
-              Aries Stainless
-            </motion.p>
+            <div className="flex">
+              <motion.p
+                variants={textVariants}
+                className="font-Alfa text-8xl tracking-wider text-white"
+              >
+                Aries{" "}
+              </motion.p>
+              &emsp;
+              <motion.p
+                className="font-Alfa text-8xl tracking-wider text-white"
+                variants={textVariants}
+              >
+                Stainless
+              </motion.p>
+            </div>
             <motion.p
               variants={textVariants}
               className="font-Alfa text-4xl tracking-wide text-white"

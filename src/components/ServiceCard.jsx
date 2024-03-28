@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import gateOrange from "../assets/icons/gateOrange.svg";
 import gateBlack from "../assets/icons/gateBlack.svg";
 import fenceOrange from "../assets/icons/fenceOrange.svg";
@@ -19,6 +20,16 @@ import blindsBlack from "../assets/icons/blindsBlack.svg";
 const ServiceCard = () => {
   const [hover, setHover] = useState(false);
   const [cardIndex, setCardIndex] = useState(null);
+
+  const hoverVariant = {
+    initial: { scale: 0.8 },
+    animate: { scale: 1 },
+  };
+
+  const childVariants = {
+    initial: { scale: 0.5 },
+    // animate: { scale: 0.3 },
+  };
 
   const handleStartHover = (e) => {
     console.log(e.target.getAttribute("value"));
@@ -93,68 +104,114 @@ const ServiceCard = () => {
     <>
       {services.map((service, index) => (
         // OUTER CARD
-        <div
+        // <motion.div
+        //   // Now adding responsive for 1280px screens
+        //   whileHover={{ scale: 1.03, borderRadius: 12 }}
+        //   transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        //   className="group relative z-10 flex w-[350px] items-center justify-center gap-5 bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white hover:bg-gradient-to-t hover:from-zinc-900 hover:to-stone-400 hover:text-black max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
+        //   key={index}
+        //   value={index}
+        // >
+        //   {/* INNER CARD */}
+        //   <div
+        //     className="flex h-[98%] w-[98%] items-center justify-center"
+        //     value={index}
+        //   >
+        //     {/* INNER MOST CARD */}
+        //     <div
+        //       className="flex h-[98%] w-[98%] flex-col items-center justify-center bg-bgCard px-5 group-hover:rounded-xl group-hover:bg-orangeColor"
+        //       onMouseEnter={handleStartHover}
+        //       onMouseLeave={handleEndHover}
+        //       value={index}
+        //     >
+        //       <div
+        //         value={index}
+        //         className="w-full items-center justify-center "
+        //       >
+        //         <div
+        //           className="mx-auto flex h-10 w-28 items-center max-desktop:h-16"
+        //           value={index}
+        //         >
+        //           <img
+        //             src={
+        //               hover & (cardIndex === index)
+        //                 ? service.active
+        //                 : service.icon
+        //             }
+        //             className="h-full w-full"
+        //           />
+        //         </div>
+        //         <div className="my-3 flex justify-center font-Alfa text-lg max-desktop:text-xl">
+        //           <span className=" tracking-wider" value={index}>
+        //             {service.title}
+        //           </span>
+        //         </div>
+        //       </div>
+        //       <div className="flex items-center justify-center">
+        //         <p
+        //           className="text-left font-Belgrano text-sm max-desktop:text-[16px] max-desktop:text-lg max-desktop:leading-6"
+        //           value={index}
+        //         >
+        //           {service.description}
+        //         </p>
+        //       </div>
+        //     </div>
+        //   </div>
+        // </motion.div>
+
+        <motion.div
           // Now adding responsive for 1280px screens
-          className="relative text-white flex items-center hover:rounded-xl justify-center group  hover:bg-gradient-to-t hover:from-zinc-900 hover:to-stone-400  hover:text-black gap-5 w-[350px] max-desktop:w-[385px] max-xl:bg-red-500 bg-gradient-to-t from-orange-500 via-amber-300 to-amber-200 max-desktop:ml-0"
+          variants={hoverVariant}
+          // whileHover={{ scale: 1.03, borderRadius: 12 }}
+          // transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          whileHover="initial"
+          className="group relative z-10 flex w-[350px] items-center justify-center gap-5 bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white hover:bg-gradient-to-t hover:from-zinc-900 hover:to-stone-400 hover:text-black max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
           key={index}
           value={index}
         >
-          {/* <div
-          // Now adding responsive for 1280px screens
-          className="relative text-white padding-card hover:bg-orangeColor hover:text-black gap-5 w-[350px] max-desktop:w-[385px] max-xl:bg-red-500 justify-center bg-gradient-to-b from-blue-300 to-pink-300 flex flex-col max-desktop:ml-0"
-          key={index}
-          onMouseEnter={handleStartHover}
-          onMouseLeave={handleEndHover}
-          value={index}
-        > */}
-          {/* <div className="bg-gradient-to-b from-blue-300 to-pink-300 h-[300px] p-1"> */}
           {/* INNER CARD */}
           <div
-            className="flex items-center justify-center h-[98%] w-[98%]"
+            className="flex h-[98%] w-[98%] items-center justify-center"
             value={index}
           >
             {/* INNER MOST CARD */}
             <div
-              className="h-[98%] w-[98%] flex flex-col items-center justify-center px-5 group-hover:rounded-xl group-hover:bg-orangeColor bg-bgCard"
+              className="flex h-[98%] w-[98%] flex-col items-center justify-center bg-bgCard  group-hover:rounded-xl group-hover:bg-orangeColor"
               onMouseEnter={handleStartHover}
               onMouseLeave={handleEndHover}
               value={index}
             >
-              <div
+              <motion.div
+                className="relative grid h-full w-1/2 items-center "
                 value={index}
-                className="w-full items-center justify-center "
+                variants={childVariants}
               >
-                <div
-                  className="h-10 w-28 flex items-center mx-auto max-desktop:h-16"
-                  value={index}
-                >
-                  <img
-                    src={
-                      hover & (cardIndex === index)
-                        ? service.active
-                        : service.icon
-                    }
-                    className="w-full h-full"
-                  />
-                </div>
-                <div className="text-lg font-Alfa my-3 flex justify-center max-desktop:text-xl">
+                <img
+                  src={
+                    hover & (cardIndex === index)
+                      ? service.active
+                      : service.icon
+                  }
+                  className=""
+                />
+              </motion.div>
+              {/* <div className="my-3 flex justify-center font-Alfa text-lg max-desktop:text-xl">
                   <span className=" tracking-wider" value={index}>
                     {service.title}
                   </span>
-                </div>
-              </div>
-              <div className="flex items-center justify-center">
+                </div> */}
+
+              {/* <div className="flex items-center justify-center">
                 <p
-                  className="text-sm text-left font-Belgrano max-desktop:text-lg max-desktop:text-[16px] max-desktop:leading-6"
+                  className="text-left font-Belgrano text-sm max-desktop:text-[16px] max-desktop:text-lg max-desktop:leading-6"
                   value={index}
                 >
                   {service.description}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
-          {/* <div className="h-full bg-black">TEST</div> */}
-        </div>
+        </motion.div>
       ))}
     </>
   );
