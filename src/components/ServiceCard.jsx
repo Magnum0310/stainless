@@ -22,13 +22,22 @@ const ServiceCard = () => {
   const [cardIndex, setCardIndex] = useState(null);
 
   const hoverVariant = {
-    initial: { scale: 0.8 },
-    animate: { scale: 1 },
+    initial: { scale: 1 },
+    animate: { scale: 1.2 },
   };
 
   const childVariants = {
-    initial: { scale: 0.5 },
-    // animate: { scale: 0.3 },
+    initial: { scale: 1, y: 50 },
+    animate: { scale: 0.6, y: 0 },
+  };
+
+  const textVariants = {
+    initial: {
+      opacity: 0,
+      y: 15,
+      transition: { duration: 0.2, ease: "easeOut" },
+    },
+    animate: { opacity: 1, y: 0 },
   };
 
   const handleStartHover = (e) => {
@@ -164,8 +173,10 @@ const ServiceCard = () => {
           variants={hoverVariant}
           // whileHover={{ scale: 1.03, borderRadius: 12 }}
           // transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          whileHover="initial"
-          className="group relative z-10 flex w-[350px] items-center justify-center gap-5 bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white hover:bg-gradient-to-t hover:from-zinc-900 hover:to-stone-400 hover:text-black max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
+          whileInView="initial"
+          whileHover="animate"
+          while
+          className="group relative z-10 m-10 flex items-center justify-center bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white hover:bg-gradient-to-t hover:from-zinc-900 hover:to-stone-400 hover:text-black max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
           key={index}
           value={index}
         >
@@ -195,20 +206,26 @@ const ServiceCard = () => {
                   className=""
                 />
               </motion.div>
-              {/* <div className="my-3 flex justify-center font-Alfa text-lg max-desktop:text-xl">
-                  <span className=" tracking-wider" value={index}>
-                    {service.title}
-                  </span>
-                </div> */}
+              <motion.div
+                variants={textVariants}
+                className="flex justify-center font-Alfa text-lg max-desktop:text-xl"
+              >
+                <span className=" tracking-wider " value={index}>
+                  {service.title}
+                </span>
+              </motion.div>
 
-              {/* <div className="flex items-center justify-center">
+              <motion.div
+                variants={textVariants}
+                className="mb-10 flex items-center justify-center px-2"
+              >
                 <p
                   className="text-left font-Belgrano text-sm max-desktop:text-[16px] max-desktop:text-lg max-desktop:leading-6"
                   value={index}
                 >
                   {service.description}
                 </p>
-              </div> */}
+              </motion.div>
             </div>
           </div>
         </motion.div>

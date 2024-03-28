@@ -51,7 +51,7 @@ const ContactPage = () => {
       backgroundClip: "text",
     },
     animate: {
-      background: "linear-gradient(to top, #f97316, #fcd34d,#f59e0b)",
+      background: "linear-gradient(to top, #f97316, #fcd34d, #f97316)",
       backgroundClip: "text",
       transition: { delay: 1.3, duration: 0.8 },
     },

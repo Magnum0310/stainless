@@ -37,7 +37,8 @@ const ServicesPage = () => {
         <div className="h-[10px] w-[25%] bg-orangeColor" />
       </motion.div>
       {/* Container for cards */}
-      <motion.div
+      {/* BACKUP */}
+      {/* <motion.div
         ref={scrollRef}
         style={{
           scale: scale,
@@ -61,6 +62,31 @@ const ServicesPage = () => {
           className="flex h-full flex-wrap justify-center gap-x-5 gap-y-5 py-10 max-desktop:inline-flex max-desktop:flex-nowrap max-desktop:overflow-hidden"
           animate={{ translateX: `-${cardIndex * 24.9}%` }}
         >
+          <ServiceCard />
+        </motion.div>
+      </motion.div> */}
+      {/* REVISION */}
+      <motion.div
+        ref={scrollRef}
+        style={{
+          scale: scale,
+          opacity: scrollYProgress,
+        }}
+        className="relative z-10 my-10 h-full w-full overflow-hidden "
+      >
+        {/* <button
+          onClick={onPrev}
+          className="absolute bottom-[50%] z-10 h-[50px] w-[100px] bg-slate-500/50 text-4xl  text-black desktop:hidden"
+        >
+          Prev
+        </button>
+        <button
+          onClick={onNext}
+          className="absolute bottom-[50%] right-0 z-10 h-[50px] w-[100px] bg-slate-500/50 text-4xl text-black desktop:hidden"
+        >
+          Next
+        </button> */}
+        <motion.div className="grid h-full  grid-cols-4 grid-rows-2">
           <ServiceCard />
         </motion.div>
       </motion.div>
