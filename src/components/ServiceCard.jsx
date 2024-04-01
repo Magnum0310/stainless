@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import gateOrange from "../assets/icons/gateOrange.svg";
 import gateBlack from "../assets/icons/gateBlack.svg";
 import fenceOrange from "../assets/icons/fenceOrange.svg";
@@ -20,24 +20,68 @@ import blindsBlack from "../assets/icons/blindsBlack.svg";
 const ServiceCard = () => {
   const [hover, setHover] = useState(false);
   const [cardIndex, setCardIndex] = useState(null);
+  const scrollRef = useRef(null);
+  const isInView = useInView(scrollRef, {
+    once: true,
+    margin: "0px 100px -300px 0px",
+  });
 
   const hoverVariant = {
-    initial: { scale: 1 },
-    animate: { scale: 1.2 },
+    initial: { scale: 1, color: "white" },
+    animate: { scale: 1, color: "white" },
   };
 
   const childVariants = {
-    initial: { scale: 1, y: 50 },
-    animate: { scale: 0.6, y: 0 },
+    initial: { scale: 0.6, y: 0, transition: { duration: 0.3 } },
+    animate: { scale: 0.7, y: 0, transition: { duration: 0.3 } },
   };
 
-  const textVariants = {
+  const titleVariants = {
     initial: {
-      opacity: 0,
-      y: 15,
-      transition: { duration: 0.2, ease: "easeOut" },
+      scale: 1.4,
+      y: "150%",
+      color: "white",
+      transition: {
+        delay: 0.4,
+        type: "tween",
+        ease: "anticipate",
+        duration: 0.5,
+      },
     },
-    animate: { opacity: 1, y: 0 },
+    animate: {
+      scale: 1,
+      color: "white",
+      y: "0%",
+      transition: {
+        delay: 0.1,
+        type: "tween",
+        ease: "anticipate",
+        duration: 0.5,
+      },
+    },
+  };
+
+  const descriptionVariants = {
+    initial: {
+      y: "20%",
+      opacity: 0,
+      transition: {
+        color: "transparent",
+        delay: 0.1,
+        type: "tween",
+        ease: "anticipate",
+        duration: 0.5,
+      },
+    },
+    animate: {
+      y: "10%",
+      opacity: 1,
+      transition: {
+        color: "white",
+        delay: 0.3,
+        duration: 0.3,
+      },
+    },
   };
 
   const handleStartHover = (e) => {
@@ -105,7 +149,7 @@ const ServiceCard = () => {
       active: blindsBlack,
       title: "Korean Blinds",
       description:
-        "Experience the perfect blend of style and functionality with our Korean blinds installation service, tailored to complement your space while providing privacy and light control.",
+        "Experience the perfect blend of style and functionality with our Korean blinds, tailored to complement your space while providing privacy and light control.",
     },
   ];
 
@@ -170,62 +214,46 @@ const ServiceCard = () => {
 
         <motion.div
           // Now adding responsive for 1280px screens
+          ref={scrollRef}
           variants={hoverVariant}
-          // whileHover={{ scale: 1.03, borderRadius: 12 }}
-          // transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          whileInView="initial"
+          // whileInView="initial"
           whileHover="animate"
-          while
-          className="group relative z-10 m-10 flex items-center justify-center bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white hover:bg-gradient-to-t hover:from-zinc-900 hover:to-stone-400 hover:text-black max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
+          animate="initial"
+          className="group relative z-10 m-5 flex items-center justify-center bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white  max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
           key={index}
-          value={index}
         >
           {/* INNER CARD */}
-          <div
-            className="flex h-[98%] w-[98%] items-center justify-center"
-            value={index}
-          >
+          <div className="flex h-[99.5%] w-[99.5%] items-center justify-center">
             {/* INNER MOST CARD */}
-            <div
-              className="flex h-[98%] w-[98%] flex-col items-center justify-center bg-bgCard  group-hover:rounded-xl group-hover:bg-orangeColor"
-              onMouseEnter={handleStartHover}
-              onMouseLeave={handleEndHover}
-              value={index}
-            >
+            <div className="relative flex h-[99.5%] w-[99.5%] flex-col items-center justify-center  bg-bgCard">
               <motion.div
-                className="relative grid h-full w-1/2 items-center "
-                value={index}
+                className="relative grid items-center "
                 variants={childVariants}
               >
                 <img
-                  src={
-                    hover & (cardIndex === index)
-                      ? service.active
-                      : service.icon
-                  }
-                  className=""
+                  src={service.icon}
+                  className="aspect-[2/1] object-contain"
                 />
               </motion.div>
-              <motion.div
-                variants={textVariants}
-                className="flex justify-center font-Alfa text-lg max-desktop:text-xl"
-              >
-                <span className=" tracking-wider " value={index}>
-                  {service.title}
-                </span>
-              </motion.div>
-
-              <motion.div
-                variants={textVariants}
-                className="mb-10 flex items-center justify-center px-2"
-              >
-                <p
-                  className="text-left font-Belgrano text-sm max-desktop:text-[16px] max-desktop:text-lg max-desktop:leading-6"
-                  value={index}
+              <div className="h-full bg-blue-200 mdDesktop:flex mdDesktop:flex-col mdDesktop:justify-center mdDesktop:bg-orange-500 desktop:inline desktop:bg-violet-500 ">
+                <motion.div
+                  variants={titleVariants}
+                  className="flex w-full justify-center font-Alfa text-lg max-desktop:text-xl"
                 >
-                  {service.description}
-                </p>
-              </motion.div>
+                  <span className="tracking-wide" value={index}>
+                    {service.title}
+                  </span>
+                </motion.div>
+
+                <motion.div
+                  variants={descriptionVariants}
+                  className="flex items-center justify-center px-2"
+                >
+                  <p className="text-center font-Belgrano text-base max-desktop:text-[16px] max-desktop:text-lg max-desktop:leading-6">
+                    {service.description}
+                  </p>
+                </motion.div>
+              </div>
             </div>
           </div>
         </motion.div>
