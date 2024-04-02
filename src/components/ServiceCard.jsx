@@ -100,7 +100,7 @@ const ServiceCard = () => {
       active: gateBlack,
       title: "Gates & Fences",
       description:
-        "Secure your premises while adding a touch of elegance with our high-quality stainless steel gates and fences",
+        "Secure your premises while adding a touch of elegance with our high-quality stainless steel gates and fences.",
     },
     {
       icon: fenceOrange,
@@ -219,43 +219,40 @@ const ServiceCard = () => {
           // whileInView="initial"
           whileHover="animate"
           animate="initial"
-          className="group relative z-10 m-5 flex items-center justify-center bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white  max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
+          // className="relative z-10 m-5 flex items-center justify-center bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white  max-desktop:ml-0 max-desktop:w-[385px] max-xl:bg-red-500"
+          className="relative z-10 m-5 flex flex-col items-center justify-center bg-gradient-to-t from-orange-500  via-amber-300 to-amber-400 text-white max-desktop:ml-0  max-xl:bg-red-500"
           key={index}
         >
           {/* INNER CARD */}
-          <div className="flex h-[99.5%] w-[99.5%] items-center justify-center">
-            {/* INNER MOST CARD */}
-            <div className="relative flex h-[99.5%] w-[99.5%] flex-col items-center justify-center  bg-bgCard">
+          {/* <div className="flex h-[99.5%] w-[99.5%] items-start justify-center"> */}
+          {/* <div className="relative flex h-[99.5%] w-[99.5%] items-center justify-center"> */}
+          {/* INNER MOST CARD */}
+          <div className="flex h-[99%] w-[99%] flex-col items-center justify-center bg-bgCard mdDesktop:px-0 desktop:px-5">
+            <motion.div
+              className="relative flex flex-1 place-items-center"
+              variants={childVariants}
+            >
+              <img src={service.icon} className="aspect-[2/1] object-contain" />
+            </motion.div>
+            <div className="relative mdDesktop:flex mdDesktop:flex-1 mdDesktop:flex-col mdDesktop:justify-center">
               <motion.div
-                className="relative grid items-center "
-                variants={childVariants}
+                variants={titleVariants}
+                className="flex justify-center font-Alfa text-lg max-desktop:text-xl mdDesktop:basis-10 desktop:basis-0"
               >
-                <img
-                  src={service.icon}
-                  className="aspect-[2/1] object-contain"
-                />
+                <p className="tracking-wide">{service.title}</p>
               </motion.div>
-              <div className="h-full bg-blue-200 mdDesktop:flex mdDesktop:flex-col mdDesktop:justify-center mdDesktop:bg-orange-500 desktop:inline desktop:bg-violet-500 ">
-                <motion.div
-                  variants={titleVariants}
-                  className="flex w-full justify-center font-Alfa text-lg max-desktop:text-xl"
-                >
-                  <span className="tracking-wide" value={index}>
-                    {service.title}
-                  </span>
-                </motion.div>
 
-                <motion.div
-                  variants={descriptionVariants}
-                  className="flex items-center justify-center px-2"
-                >
-                  <p className="text-center font-Belgrano text-base max-desktop:text-[16px] max-desktop:text-lg max-desktop:leading-6">
-                    {service.description}
-                  </p>
-                </motion.div>
-              </div>
+              <motion.div
+                variants={descriptionVariants}
+                className=" flex items-center justify-center px-2"
+              >
+                <p className="text-center font-Belgrano text-base max-desktop:text-lg">
+                  {service.description}
+                </p>
+              </motion.div>
             </div>
           </div>
+          {/* </div> */}
         </motion.div>
       ))}
     </>
