@@ -92,7 +92,9 @@ const ServicesPage = () => {
           >
             <motion.div
               variants={hiddenVariants}
-              className="z-5 relative grid mdDesktop:h-4/5 mdDesktop:w-[3500px] mdDesktop:grid-cols-8 mdDesktop:grid-rows-1  mdDesktop:px-5 desktop:h-full desktop:w-full desktop:grid-cols-4 desktop:grid-rows-2 "
+              className="z-5 relative grid w-[2500px]  md:grid-cols-8 md:grid-rows-1 lg:h-4/5 mdDesktop:px-5 xl:w-[3500px] desktop:h-full desktop:w-full desktop:grid-cols-4 desktop:grid-rows-2 "
+              // Added - lg:grid-cols-8 lg:grid-rows-1, w-[2800px]
+              // Modified - mdDesktop:w-[3500px] to max-mdDesktop:w-[3500px], xl:w-[3500px]
               animate={{ translateX: `-${cardIndex * 24.5}%` }}
               transition={{ ease: "easeInOut" }}
             >
@@ -108,7 +110,7 @@ const ServicesPage = () => {
                 >
                   <img
                     src={cardIndex === 0 ? grayArrow : orangeArrow}
-                    className="w-3/4"
+                    className="w-3/4 max-xl:w-1/2"
                   />
                 </motion.button>
                 <motion.button
@@ -119,7 +121,7 @@ const ServicesPage = () => {
                 >
                   <img
                     src={cardIndex === 3 ? grayArrow : orangeArrow}
-                    className="w-3/4"
+                    className="w-3/4 max-xl:w-1/2"
                   />
                 </motion.button>
               </motion.div>
