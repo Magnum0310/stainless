@@ -38,8 +38,6 @@ const ChooseUsPage = () => {
       transition: {
         delay: 0.3,
         duration: 1,
-        // ease: [0.6, 0.01, -0.05, 0.95],
-        // ease: [0.6, 0.01, 0.05, 0.95],
         ease: "easeInOut",
         staggerChildren: 0.1,
         delayChildren: 0.3,
@@ -73,7 +71,6 @@ const ChooseUsPage = () => {
             backgroundRepeat: "no-repeat",
             transform: isInView ? "translateX(0px)" : "translateX(-2000px)",
             scale: isInView ? 2.5 : 2,
-            // opacity: isInView ? 1 : 0,
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
           }}
         ></motion.img>
@@ -88,7 +85,6 @@ const ChooseUsPage = () => {
           variants={bgVariants}
           initial="initial"
           animate="animate"
-          // transition={{ duration: 2 }}
           className="padding padding-x absolute top-0 z-20 flex h-full w-[65%] flex-col justify-center gap-5"
         >
           <motion.p

@@ -46,7 +46,7 @@ const LandingPage = () => {
   return (
     <>
       <div
-        className="padding-x w- relative flex h-screen items-center justify-center bg-gradient-to-r from-slate-900 via-slate-100 to-slate-900 bg-cover bg-center"
+        className="padding-x relative  flex h-screen items-center justify-center bg-gradient-to-r from-slate-900 via-slate-100 to-slate-900 bg-cover bg-center"
         style={{
           backgroundImage: `url(${Weld01})`,
           backgroundSize: "",
@@ -61,24 +61,27 @@ const LandingPage = () => {
         >
           <div>LOGO</div>
           <ul className="flex gap-5 ">
-            <motion.li
+            <motion.a
               variants={textVariants}
               className="cursor-pointer px-5 hover:text-orangeColor"
+              href="#services"
             >
               Services
-            </motion.li>
-            <motion.li
+            </motion.a>
+            <motion.a
               variants={textVariants}
               className="cursor-pointer px-5 hover:text-orangeColor"
+              href="#choose"
             >
               About Us
-            </motion.li>
-            <motion.li
+            </motion.a>
+            <motion.a
               variants={textVariants}
               className="cursor-pointer px-5 hover:text-orangeColor"
+              href="#contact"
             >
               Contact Us
-            </motion.li>
+            </motion.a>
           </ul>
         </motion.div>
 

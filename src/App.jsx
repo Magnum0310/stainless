@@ -1,37 +1,87 @@
-import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import ServicesPage from "./components/ServicesPage";
 import ChooseUsPage from "./components/ChooseUsPage";
 import ContactPage from "./components/ContactPage";
-import { useScroll } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useScroll, useMotionValue, useInView } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import "./App.css";
 
 function App() {
-  const { scrollY } = useScroll();
-  const [test, setTest] = useState("");
-  useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY]);
+  const scrollRef = useRef(null);
+  const [translate, setTranslate] = useState(0);
+
+  const TWEEN_OPTIONS = {
+    ease: "easeOut",
+    duration: 0.5,
+  };
+
+  const DRAG_BUFFER = 30;
+  const [containerIndex, setcontainerIndex] = useState(0);
+  const dragY = useMotionValue(0);
+
+  const onDragEnd = () => {
+    const y = dragY.get();
+    if (y <= -DRAG_BUFFER && containerIndex < 4 - 1) {
+      setcontainerIndex((pv) => pv + 1);
+    } else if (y >= DRAG_BUFFER && containerIndex > 0) {
+      setcontainerIndex((pv) => pv - 1);
+    }
+  };
+
+  const navVariants = {
+    initial: { y: -10, opacity: 0 },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.8,
+        duration: 0.3,
+        staggerChildren: 0.2,
+        delayChildren: 1,
+      },
+    },
+  };
+
+  const textVariants = {
+    initial: { y: 10, opacity: 0, transition: { duration: 1 } },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
 
   return (
-    // <main className="h-screen snap-y snap-proximity overflow-y-auto scroll-smooth border-4 border-solid border-red-500">
-    <main className="h-screen">
-      {/* <div className="containerBox relative">
-        <Navbar />
-      </div> */}
-      <div className="containerBox h-screen">
+    <motion.main className="relative h-full">
+      {/* NAVBAR */}
+
+      <motion.div
+        className="containerBox h-screen snap-start snap-always"
+        id="home"
+      >
         <LandingPage />
-      </div>
-      <div className="containerBox h-screen ">
+      </motion.div>
+      <motion.div
+        className="containerBox h-screen snap-start snap-always"
+        id="services"
+      >
         <ServicesPage />
-      </div>
-      <div className="containerBox h-screen">
+      </motion.div>
+      <motion.div
+        className="containerBox h-screen snap-start snap-always"
+        id="choose"
+      >
         <ChooseUsPage />
-      </div>
-      <div className="containerBox h-screen">
+      </motion.div>
+      <motion.div
+        className="containerBox h-screen snap-start snap-always"
+        id="contact"
+      >
         <ContactPage />
-      </div>
-    </main>
+      </motion.div>
+    </motion.main>
   );
 }
 

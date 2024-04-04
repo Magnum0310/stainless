@@ -178,6 +178,18 @@ const ContactPage = () => {
               </g>
             </g>
           </motion.svg>
+          <motion.a
+            href="#home"
+            className="relative top-10 flex w-[10%] justify-center rounded-full border-2 border-white p-4 font-Belgrano font-bold text-white  hover:text-black"
+            variants={contactTextVariant}
+            transition={{ duration: 0.2 }}
+            whileHover={{
+              scale: 1.02,
+              backgroundColor: "#f5a81e",
+            }}
+          >
+            Back to Top
+          </motion.a>
         </>
       ) : (
         <></>

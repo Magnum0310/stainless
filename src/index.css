@@ -8,6 +8,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@tailwind base;
+html {
+  scroll-behavior: smooth;
+}
+
 @layer components {
   .containerBox {
     @apply w-[100%];
@@ -40,5 +45,12 @@
   }
   .padding-b {
     @apply pb-12 sm:pb-24;
+  }
+  #main::-webkit-scrollbar {
+    display: none;
+  }
+  #main {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
