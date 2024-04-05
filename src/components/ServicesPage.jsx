@@ -77,10 +77,10 @@ const ServicesPage = () => {
             variants={hiddenVariants}
             className="relative mt-5 flex w-full flex-col items-center justify-center max-desktop:mt-10 desktop:py-5"
           >
-            <motion.p className="font-Alfa text-4xl text-white">
+            <motion.p className="font-Alfa text-4xl text-white max-xl:text-2xl max-lg:text-xl">
               SERVICES
             </motion.p>
-            <div className="h-[10px] w-[25%] bg-orangeColor" />
+            <div className="h-[10px] w-[35%] bg-orangeColor max-lg:w-[40%]" />
           </motion.div>
           {/* Container for cards */}
           {/* REVISION */}
@@ -92,7 +92,7 @@ const ServicesPage = () => {
           >
             <motion.div
               variants={hiddenVariants}
-              className="z-5 relative grid w-[2500px]  md:grid-cols-8 md:grid-rows-1 lg:h-4/5 mdDesktop:px-5 xl:w-[3500px] desktop:h-full desktop:w-full desktop:grid-cols-4 desktop:grid-rows-2 "
+              className="z-5 relative grid h-3/4 w-[3000px] grid-cols-8 grid-rows-1 px-5 max-md:h-4/5 max-sm:grid-cols-8 max-sm:grid-rows-1 md:w-[3200px] desktop:h-full desktop:w-full desktop:grid-cols-4 desktop:grid-rows-2"
               // Added - lg:grid-cols-8 lg:grid-rows-1, w-[2800px]
               // Modified - mdDesktop:w-[3500px] to max-mdDesktop:w-[3500px], xl:w-[3500px]
               animate={{ translateX: `-${cardIndex * 24.5}%` }}
@@ -101,31 +101,36 @@ const ServicesPage = () => {
               <ServiceCard />
             </motion.div>
             <div className="relative flex">
-              <motion.div className="flex items-center justify-center gap-5">
-                <motion.button
+              <motion.div className="flex items-center justify-center gap-5  max-xl:justify-start">
+                {/* <motion.button
                   onClick={onPrev}
-                  className="rotate-180 desktop:hidden"
+                  className="flex rotate-180 justify-end bg-violet-500 desktop:hidden"
                   disabled={cardIndex === 0 ? true : false}
                   variants={prevButtonVariant}
-                >
-                  <img
-                    src={cardIndex === 0 ? grayArrow : orangeArrow}
-                    className="w-3/4 max-xl:w-1/2"
-                  />
-                </motion.button>
-                <motion.button
+                > */}
+                <motion.img
+                  onClick={onPrev}
+                  variants={prevButtonVariant}
+                  src={cardIndex === 0 ? grayArrow : orangeArrow}
+                  className="w-3/4 rotate-180 cursor-pointer  max-xl:w-1/4 desktop:hidden"
+                />
+                {/* </motion.button> */}
+                {/* <motion.button
                   onClick={onNext}
-                  className=" desktop:hidden"
+                  className="bg-blue-500 desktop:hidden"
                   disabled={cardIndex === 3 ? true : false}
                   variants={buttonVariants}
-                >
-                  <img
-                    src={cardIndex === 3 ? grayArrow : orangeArrow}
-                    className="w-3/4 max-xl:w-1/2"
-                  />
-                </motion.button>
+                > */}
+                <motion.img
+                  onClick={onNext}
+                  variants={buttonVariants}
+                  src={cardIndex === 3 ? grayArrow : orangeArrow}
+                  className="w-3/4 cursor-pointer max-xl:w-1/4 desktop:hidden"
+                  disabled={cardIndex === 3 ? true : false}
+                />
+                {/* </motion.button> */}
               </motion.div>
-              <motion.div className="pl-10">
+              <motion.div className=" pl-10 max-xl:relative max-xl:right-[7%] max-xl:pl-0 max-lg:right-[10%] max-md:right-[13%] max-sm:right-[10%]">
                 <motion.ul
                   className="relative flex h-full w-[250px] items-center justify-center gap-2 "
                   variants={loadVariants}
@@ -174,8 +179,8 @@ const ServicesPage = () => {
       ) : (
         <></>
       )}
-      <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
-      <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
+      <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
     </motion.div>
   );
 };

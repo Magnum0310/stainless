@@ -57,7 +57,7 @@ const LandingPage = () => {
           variants={navVariants}
           initial="initial"
           animate="animate"
-          className="padding-nav padding-x absolute top-0 z-10 flex w-full justify-between bg-gray-800 font-Alfa text-xl text-white"
+          className="padding-nav padding-x absolute top-0 z-10 flex w-full justify-between bg-gray-800 font-Alfa text-xl text-white max-xl:hidden"
         >
           <div>LOGO</div>
           <ul className="flex gap-5 ">
@@ -89,19 +89,19 @@ const LandingPage = () => {
           variants={bgVariants}
           initial="initial"
           animate="animate"
-          className="w-[90%] border-[10px] border-solid border-orangeColor font-bold text-white"
+          className="w-[90%] border-[10px] border-solid border-orangeColor font-bold text-white max-md:w-[80%]"
         >
-          <div className="padding relative flex h-full w-full flex-col items-center gap-5 bg-black bg-opacity-75">
-            <div className="flex">
+          <div className="padding relative flex h-full w-full flex-col items-center gap-5 bg-black bg-opacity-75 max-md:items-start">
+            <div className="flex max-md:flex-col">
               <motion.p
                 variants={textVariants}
-                className="font-Alfa text-8xl tracking-wider text-white"
+                className="max font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-xl:text-blue-500 max-lg:text-6xl max-lg:text-green-500 max-md:text-5xl max-md:text-orange-500 max-sm:text-red-500"
               >
                 Aries{" "}
               </motion.p>
-              &emsp;
+              <div className="max-md:hidden">&emsp;</div>
               <motion.p
-                className="font-Alfa text-8xl tracking-wider text-white"
+                className="font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-lg:text-6xl max-md:text-5xl"
                 variants={textVariants}
               >
                 Stainless
@@ -109,14 +109,14 @@ const LandingPage = () => {
             </div>
             <motion.p
               variants={textVariants}
-              className="font-Alfa text-4xl tracking-wide text-white"
+              className="font-Alfa text-4xl tracking-wide text-white max-lg:text-3xl max-md:text-xl"
             >
               Installation Services
             </motion.p>
           </div>
         </motion.div>
-        <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
-        <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
+        <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
+        <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
       </div>
     </>
   );

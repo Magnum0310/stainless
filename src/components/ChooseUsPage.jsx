@@ -64,7 +64,7 @@ const ChooseUsPage = () => {
         {/* TRIANGLE */}
         <motion.img
           ref={divRef}
-          className="absolute right-[38%] z-10 h-full w-full scale-[2.5]"
+          className="absolute bottom-72 right-[45%] z-10 h-full w-full max-xl:right-[55%] max-xl:bg-bgPrimary max-xl:opacity-75"
           style={{
             backgroundImage: `url(${Triangle})`,
             backgroundSize: "cover",
@@ -75,8 +75,8 @@ const ChooseUsPage = () => {
           }}
         ></motion.img>
         {/* IMAGE */}
-        <motion.div className="relative left-64 w-full bg-orange-500">
-          <img src={Weld01} className="h-full " />
+        <motion.div className="relative left-[25%] h-full w-full max-xl:left-0">
+          <img src={Weld01} className="h-full object-cover" />
         </motion.div>
       </div>
       {/* TEXT AREA */}
@@ -85,56 +85,56 @@ const ChooseUsPage = () => {
           variants={bgVariants}
           initial="initial"
           animate="animate"
-          className="padding padding-x absolute top-0 z-20 flex h-full w-[65%] flex-col justify-center gap-5"
+          className="absolute top-0 z-20 flex h-full w-[70%] flex-col justify-center gap-5 px-14 max-xl:w-[75%] max-xl:gap-3 "
         >
           <motion.p
             variants={paraVariants}
-            className=" w-max font-Alfa text-4xl text-orangeColor"
+            className="w-max font-Alfa text-4xl text-orangeColor max-xl:text-3xl max-xl:text-green-500 max-lg:text-blue-500 max-md:text-red-500 max-sm:text-violet-500"
           >
             Why Choose Us:
           </motion.p>
-          <div className="mt-10 w-[65%]">
+          <div className="mt-10 w-[70%] max-xl:w-[80%] max-lg:w-[90%]">
             <motion.p
               variants={paraVariants}
-              className=" font-Alfa text-2xl tracking-wide text-orangeColor"
+              className="text-choose-title font-Alfa tracking-wide text-orangeColor "
             >
               Quality Craftsmanship:
             </motion.p>
             <motion.p
               variants={paraVariants}
-              className="mt-5 font-Belgrano text-lg tracking-wide text-white"
+              className="text-choose-description mt-5 font-Belgrano tracking-wide text-white max-sm:mt-3 "
             >
               We take pride in our superior craftsmanship and attention to
               detail, ensuring the highest quality in every project we
               undertake.
             </motion.p>
           </div>
-          <div className="mt-10 w-3/4">
+          <div className="mt-10 w-4/5 max-xl:w-[90%] max-lg:w-full">
             <motion.p
               variants={paraVariants}
-              className=" font-Alfa text-2xl tracking-wide text-orangeColor"
+              className=" text-choose-title font-Alfa tracking-wide text-orangeColor"
             >
               Customization:
             </motion.p>
             <motion.p
               variants={paraVariants}
-              className="mt-5 font-Belgrano text-lg tracking-wide text-white"
+              className="text-choose-description mt-5 font-Belgrano tracking-wide text-white max-sm:mt-3"
             >
               Whether you need standard products or custom solutions, we can
               tailor our offerings to meet your specific requirements and
               preferences.
             </motion.p>
           </div>
-          <div className="mt-10 w-full">
+          <div className="mt-10 w-[90%] max-xl:w-full max-lg:w-[110%]">
             <motion.p
               variants={paraVariants}
-              className=" font-Alfa text-2xl tracking-wide text-orangeColor"
+              className=" text-choose-title font-Alfa tracking-wide text-orangeColor"
             >
               Reliability:
             </motion.p>
             <motion.p
               variants={paraVariants}
-              className="mt-5 font-Belgrano text-lg tracking-wide text-white"
+              className="text-choose-description mt-5 font-Belgrano tracking-wide text-white max-sm:mt-3"
             >
               Count on us for prompt and reliable service, from project planning
               to installation and beyond, backed by our commitment to customer
@@ -145,11 +145,11 @@ const ChooseUsPage = () => {
       ) : (
         <></>
       )}
-      <div className=" absolute bottom-64 top-12 z-10 w-[8%] bg-darkGray text-2xl text-white"></div>
+      <div className="absolute bottom-64 top-12 z-10 w-[8%] bg-darkGray text-2xl text-white"></div>
       <div className="absolute bottom-0 left-[33%] top-[60%] z-30 w-[18%] bg-lightGray  text-2xl text-white opacity-40"></div>
       <div className="absolute bottom-0 left-[40%] top-[70%] z-20 w-[18%] bg-darkGray text-2xl text-white opacity-40"></div>
-      <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
-      <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
+      <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
     </div>
   );
 };

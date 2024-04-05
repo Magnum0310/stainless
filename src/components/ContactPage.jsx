@@ -90,7 +90,7 @@ const ContactPage = () => {
     >
       {isInView ? (
         <>
-          <motion.svg
+          {/* <motion.svg
             variants={topSvgVariants}
             className="mb-32 fill-white"
             version="1.2"
@@ -112,50 +112,50 @@ const ContactPage = () => {
                 <path class="a" d="m-0.1 8.6h939.6v-7.7h-939.6z" />
               </g>
             </g>
-          </motion.svg>
+          </motion.svg> */}
           <motion.div
             variants={contactBgVariant}
             initial="initial"
             animate="animate"
-            className="flex w-[75%] flex-col gap-10"
+            className="flex w-[85%] flex-col gap-10 max-lg:w-[95%] max-lg:gap-5"
           >
-            <p className="flex justify-center gap-5">
+            <p className="flex items-center justify-center gap-5">
               <motion.span
                 variants={contactTextVariant}
-                className="font-Alfa  text-[64px] text-orangeColor"
+                className="font-Alfa text-[64px] text-orangeColor max-xl:text-[52px] max-xl:text-blue-500 max-lg:text-green-500 max-md:text-violet-500 max-sm:text-red-500"
               >
                 Contact
               </motion.span>
               <motion.span
                 variants={contactTextVariant}
-                className=" font-Alfa  text-[64px] text-orangeColor"
+                className=" font-Alfa text-[64px] text-orangeColor max-xl:text-[52px]"
               >
                 Us
               </motion.span>
             </p>
             <motion.p
               variants={contactTextVariant}
-              className=" font-Belgrano text-xl leading-8 tracking-wider text-white"
+              className="px-12 text-center font-Belgrano text-xl tracking-wide text-white max-xl:px-2 max-xl:text-lg max-lg:px-0 max-lg:text-base"
             >
               Ready to transform your space with our stainless steel solutions?
               Contact us today to discuss your project or request a
               consultation. At{" "}
               <motion.span
                 variants={textVariants}
-                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-transparent"
+                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-transparent max-lg:text-3xl"
               >
                 Aries Stainless{" "}
               </motion.span>
               Installation Services, we bring your vision to{" "}
               <motion.span
                 variants={textVariants}
-                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-orangeColor text-transparent"
+                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-orangeColor text-transparent max-lg:text-3xl"
               >
                 life!
               </motion.span>
             </motion.p>
           </motion.div>
-          <motion.svg
+          {/* <motion.svg
             variants={bottomSvgVariants}
             className="mt-32 fill-white"
             version="1.2"
@@ -177,10 +177,10 @@ const ContactPage = () => {
                 <path class="a" d="m-0.1 8.6h939.6v-7.7h-939.6z" />
               </g>
             </g>
-          </motion.svg>
+          </motion.svg> */}
           <motion.a
             href="#home"
-            className="relative top-10 flex w-[10%] justify-center rounded-full border-2 border-white p-4 font-Belgrano font-bold text-white  hover:text-black"
+            className="relative top-10 flex  justify-center rounded-full border-2 border-white p-4 font-Belgrano font-bold text-white hover:text-black"
             variants={contactTextVariant}
             transition={{ duration: 0.2 }}
             whileHover={{

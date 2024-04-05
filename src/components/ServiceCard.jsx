@@ -217,32 +217,33 @@ const ServiceCard = () => {
           ref={scrollRef}
           variants={hoverVariant}
           whileHover="animate"
+          whileDrag="animate"
           animate="initial"
-          className="relative z-10 m-5 flex flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 "
+          className="relative z-10 m-5 flex w-[97%] flex-col items-center justify-center  bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 "
           key={index}
         >
           {/* INNER CARD */}
           {/* INNER MOST CARD */}
           {/* <div className="flex h-[99%] w-[99%] flex-col items-center justify-center bg-bgCard lg:px-0 desktop:px-5"> */}
-          <div className="flex h-full w-full flex-col items-center justify-center bg-bgCard lg:px-0 desktop:px-5">
+          <div className="flex h-full w-[100%] flex-col items-center justify-center bg-bgCard  lg:px-0 desktop:px-1">
             <motion.div
-              className="relative flex flex-1 place-items-center"
+              className="relative flex lg:flex-1"
               variants={childVariants}
             >
               <img src={service.icon} className="aspect-[2/1] object-contain" />
             </motion.div>
-            <div className="relative lg:flex lg:flex-1 lg:flex-col lg:justify-center">
+            <div className="relative flex flex-col items-center justify-center lg:flex-1">
               <motion.div
                 variants={titleVariants}
-                className="flex items-center justify-center font-Alfa text-xl max-xl:text-base xl:basis-10 desktop:basis-0"
+                className="flex w-full items-center justify-center font-Alfa text-xl max-xl:basis-10 max-md:text-sm desktop:basis-0"
               >
                 <p className="tracking-wide">{service.title}</p>
               </motion.div>
               <motion.div
                 variants={descriptionVariants}
-                className="flex items-center justify-center max-xl:px-2 max-xl:pb-10"
+                className="flex items-center justify-center px-2 max-xl:pb-10 max-xl:pt-5 desktop:px-0"
               >
-                <p className="text-center font-Belgrano text-base max-xl:text-sm">
+                <p className="text-center font-Belgrano text-base">
                   {service.description}
                 </p>
               </motion.div>
