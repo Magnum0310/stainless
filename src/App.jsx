@@ -56,7 +56,6 @@ function App() {
   return (
     <motion.main className="relative h-full">
       {/* NAVBAR */}
-
       <motion.div
         className="containerBox h-screen snap-start snap-always"
         id="home"

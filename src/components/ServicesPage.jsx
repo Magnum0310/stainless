@@ -1,12 +1,31 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ServiceCard from "../components/ServiceCard";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+  useMotionValue,
+} from "framer-motion";
 import grayArrow from "../assets/icons/grayArrow.svg";
 import orangeArrow from "../assets/icons/orangeArrow.svg";
 
 const ServicesPage = () => {
   const [cardIndex, setCardIndex] = useState(0);
   const scrollRef = useRef(null);
+
+  const DRAG_BUFFER = 30;
+  const [containerIndex, setcontainerIndex] = useState(0);
+  const dragX = useMotionValue(0);
+
+  const onDragEnd = () => {
+    const x = dragX.get();
+    if (x <= -DRAG_BUFFER && cardIndex < 4 - 1) {
+      setCardIndex((pv) => pv + 1);
+    } else if (x >= DRAG_BUFFER && cardIndex > 0) {
+      setCardIndex((pv) => pv - 1);
+    }
+  };
 
   const scaleVariant = {
     initial: { opacity: 1 },
@@ -45,6 +64,31 @@ const ServicesPage = () => {
     },
   };
 
+  const [width, setWidth] = useState(window.innerWidth);
+  console.log(width);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  if (width <= 1200) {
+    console.log("Over 1200");
+  }
+
+  if (width <= 900) {
+    console.log("Over 900");
+  }
+
+  if (width <= 700) {
+    console.log("Over 700");
+  }
+
   const onNext = () => {
     if (cardIndex === 3) {
       return;
@@ -69,7 +113,8 @@ const ServicesPage = () => {
       variants={scaleVariant}
       initial="initial"
       animate="animate"
-      className=" padding-x relative flex h-screen flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start"
+      // className="padding-x relative flex h-screen flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start"
+      className="padding-x relative flex h-screen flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start"
     >
       {isInView ? (
         <>
@@ -92,10 +137,18 @@ const ServicesPage = () => {
           >
             <motion.div
               variants={hiddenVariants}
-              className="z-5 relative grid h-3/4 w-[3000px] grid-cols-8 grid-rows-1 px-5 max-md:h-4/5 max-sm:grid-cols-8 max-sm:grid-rows-1 md:w-[3200px] desktop:h-full desktop:w-full desktop:grid-cols-4 desktop:grid-rows-2"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              style={{ x: dragX }}
+              className="relative z-10 grid h-3/4 w-[3000px] grid-cols-8 grid-rows-1 px-5 max-xl:bg-green-500 max-lg:w-[2600px] max-lg:bg-gray-500 max-md:h-4/5 max-md:w-[2000px] max-md:bg-orange-500 max-md:px-0 max-sm:w-[1600px] max-sm:grid-cols-8 max-sm:grid-rows-1 max-sm:bg-violet-500 desktop:h-full desktop:w-full desktop:grid-cols-4 desktop:grid-rows-2"
               // Added - lg:grid-cols-8 lg:grid-rows-1, w-[2800px]
               // Modified - mdDesktop:w-[3500px] to max-mdDesktop:w-[3500px], xl:w-[3500px]
-              animate={{ translateX: `-${cardIndex * 24.5}%` }}
+              // animate={{ translateX: `-${cardIndex * 24.5}%` }}
+              animate={{
+                translateX: `-${width > 1200 ? cardIndex * 25 : cardIndex * 25}%`,
+              }}
+              // animate={{ translateX: `-${containerIndex * 14}%` }}
+              onDragEnd={onDragEnd}
               transition={{ ease: "easeInOut" }}
             >
               <ServiceCard />

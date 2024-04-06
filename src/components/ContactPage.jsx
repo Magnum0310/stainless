@@ -122,34 +122,34 @@ const ContactPage = () => {
             <p className="flex items-center justify-center gap-5">
               <motion.span
                 variants={contactTextVariant}
-                className="font-Alfa text-[64px] text-orangeColor max-xl:text-[52px] max-xl:text-blue-500 max-lg:text-green-500 max-md:text-violet-500 max-sm:text-red-500"
+                className="font-Alfa text-[64px] text-orangeColor max-xl:text-[52px] max-xl:text-blue-500 max-lg:text-green-500 max-md:text-violet-500 max-sm:text-4xl max-sm:text-red-500"
               >
                 Contact
               </motion.span>
               <motion.span
                 variants={contactTextVariant}
-                className=" font-Alfa text-[64px] text-orangeColor max-xl:text-[52px]"
+                className=" font-Alfa text-[64px] text-orangeColor max-xl:text-[52px] max-sm:text-4xl"
               >
                 Us
               </motion.span>
             </p>
             <motion.p
               variants={contactTextVariant}
-              className="px-12 text-center font-Belgrano text-xl tracking-wide text-white max-xl:px-2 max-xl:text-lg max-lg:px-0 max-lg:text-base"
+              className="px-12 text-center font-Belgrano text-xl tracking-wide text-white max-xl:px-2 max-xl:text-lg max-lg:px-0 max-lg:text-base max-sm:text-sm"
             >
               Ready to transform your space with our stainless steel solutions?
               Contact us today to discuss your project or request a
               consultation. At{" "}
               <motion.span
                 variants={textVariants}
-                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-transparent max-lg:text-3xl"
+                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-transparent max-lg:text-3xl max-sm:text-2xl"
               >
                 Aries Stainless{" "}
               </motion.span>
               Installation Services, we bring your vision to{" "}
               <motion.span
                 variants={textVariants}
-                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-orangeColor text-transparent max-lg:text-3xl"
+                className="bg-gradient-to-t from-orange-500 via-amber-300 to-amber-500 bg-clip-text text-4xl font-bold tracking-wide text-orangeColor text-transparent max-lg:text-3xl max-sm:text-2xl"
               >
                 life!
               </motion.span>
