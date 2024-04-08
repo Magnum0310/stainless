@@ -46,7 +46,7 @@ const LandingPage = () => {
   return (
     <>
       <div
-        className="padding-x relative  flex h-screen items-center justify-center bg-gradient-to-r from-slate-900 via-slate-100 to-slate-900 bg-cover bg-center"
+        className="padding-x relative flex h-screen items-center justify-center bg-gradient-to-r from-slate-900 via-slate-100 to-slate-900 bg-cover bg-center"
         style={{
           backgroundImage: `url(${Weld01})`,
           backgroundSize: "",
@@ -59,7 +59,7 @@ const LandingPage = () => {
           animate="animate"
           className="padding-nav padding-x absolute top-0 z-10 flex w-full justify-between bg-gray-800 font-Alfa text-xl text-white max-xl:hidden"
         >
-          <div>LOGO</div>
+          <div>Aries Stainless</div>
           <ul className="flex gap-5 ">
             <motion.a
               variants={textVariants}
@@ -89,19 +89,19 @@ const LandingPage = () => {
           variants={bgVariants}
           initial="initial"
           animate="animate"
-          className="w-[90%] border-[10px] border-solid border-orangeColor font-bold text-white max-md:w-[80%]"
+          className="relative w-[90%] border-[10px] border-solid border-orangeColor  font-bold text-white max-md:h-3/4 max-md:w-[80%] max-md:border-none max-sm:w-[90%]"
         >
-          <div className="padding relative flex h-full w-full flex-col items-center gap-5 bg-black bg-opacity-75 max-md:items-start">
-            <div className="flex max-md:flex-col">
+          <div className="padding relative flex h-full w-full flex-col items-center gap-5 bg-black bg-opacity-75 max-md:z-20 max-md:items-start max-md:justify-center max-md:bg-transparent max-md:p-0">
+            <div className="relative flex  max-md:w-full max-md:flex-col">
               <motion.p
                 variants={textVariants}
-                className="max font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-xl:text-blue-500 max-lg:text-6xl max-lg:text-green-500 max-md:text-5xl max-md:text-orange-500 max-sm:text-red-500"
+                className="max font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-xl:text-blue-500 max-lg:text-6xl max-lg:text-green-500 max-md:text-8xl max-md:text-orange-500 max-sm:text-6xl max-sm:text-red-500"
               >
                 Aries{" "}
               </motion.p>
               <div className="max-md:hidden">&emsp;</div>
               <motion.p
-                className="font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-lg:text-6xl max-md:text-5xl"
+                className="font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-lg:text-6xl max-md:text-7xl max-sm:text-5xl"
                 variants={textVariants}
               >
                 Stainless
@@ -109,7 +109,8 @@ const LandingPage = () => {
             </div>
             <motion.p
               variants={textVariants}
-              className="font-Alfa text-4xl tracking-wide text-white max-lg:text-3xl max-md:text-xl"
+              className="font-Alfa text-4xl tracking-wide text-white max-lg:text-3xl max-md:bg-gradient-to-t max-md:from-amber-500 max-md:to-amber-300 max-md:bg-clip-text max-md:text-2xl max-md:text-transparent 
+              "
             >
               Installation Services
             </motion.p>
@@ -117,6 +118,11 @@ const LandingPage = () => {
         </motion.div>
         <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
         <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
+        <div className="pointer-events-none absolute bottom-0 top-0 -z-10 w-full bg-gradient-to-t from-gray-900/80 via-gray-500/50 to-gray-900/50 max-md:z-10" />
+        {/* <div
+          className="right-autof pointer-events-none absolute bottom-0 left-[15%] 
+          top-1/4 z-10 hidden h-1/4 w-1/4 border-4 border-orangeColor max-md:inline"
+        /> */}
       </div>
     </>
   );

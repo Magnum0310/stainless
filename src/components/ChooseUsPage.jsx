@@ -62,8 +62,7 @@ const ChooseUsPage = () => {
       {/* <div class="relative border-x-[950px] border-y-[300px] border-transparent border-b-bgPrimary border-l-bgPrimary scale-y-[3.5]" /> */}
       <div className="relative h-full w-full">
         {/* TRIANGLE */}
-        <motion.img
-          ref={divRef}
+        <motion.div
           className="absolute bottom-72 right-[45%] z-10 h-full w-full max-xl:right-[55%] max-xl:bg-bgPrimary max-xl:opacity-75"
           style={{
             backgroundImage: `url(${Triangle})`,
@@ -73,10 +72,16 @@ const ChooseUsPage = () => {
             scale: isInView ? 2.5 : 2,
             transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
           }}
-        ></motion.img>
+        ></motion.div>
         {/* IMAGE */}
-        <motion.div className="relative left-[25%] h-full w-full max-xl:left-0">
-          <img src={Weld01} className="h-full object-cover" />
+        <motion.div
+          ref={divRef}
+          className="relative h-full w-full bg-orange-500 max-xl:left-0"
+        >
+          <img
+            src={Weld01}
+            className="relative h-full w-full object-cover object-top"
+          />
         </motion.div>
       </div>
       {/* TEXT AREA */}
