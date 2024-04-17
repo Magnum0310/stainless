@@ -96,7 +96,6 @@ const LandingPage = () => {
               <motion.p
                 variants={textVariants}
                 className="max font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-xl:text-blue-500 max-lg:text-6xl max-lg:text-green-500 max-md:text-8xl max-md:text-orange-500 max-sm:text-6xl max-sm:text-red-500"
-                // className="max font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-xl:text-blue-500 max-lg:text-6xl max-lg:text-green-500 max-md:text-8xl max-md:text-orange-500 max-sm:text-6xl max-sm:text-red-500"
               >
                 Aries{" "}
               </motion.p>
@@ -120,10 +119,6 @@ const LandingPage = () => {
         <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
         <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
         <div className="pointer-events-none absolute bottom-0 top-0 -z-10 w-full bg-gradient-to-t from-gray-900/80 via-gray-500/50 to-gray-900/50 max-md:z-10" />
-        {/* <div
-          className="right-autof pointer-events-none absolute bottom-0 left-[15%] 
-          top-1/4 z-10 hidden h-1/4 w-1/4 border-4 border-orangeColor max-md:inline"
-        /> */}
       </div>
     </>
   );

@@ -133,7 +133,7 @@ const ServicesPage = () => {
             variants={scaleVariant}
             initial="initial"
             animate="animate"
-            className="relative z-10 my-10 flex h-full w-full flex-col justify-around overflow-hidden"
+            className="relative z-10 my-10 flex h-full w-full flex-col justify-around overflow-hidden bg-red-500"
           >
             <motion.div
               variants={hiddenVariants}
@@ -154,7 +154,7 @@ const ServicesPage = () => {
               <ServiceCard />
             </motion.div>
             <div className="relative flex">
-              <motion.div className="flex items-center justify-center gap-5  max-xl:justify-start">
+              <motion.div className="ml-5 flex  items-center justify-start gap-5 bg-green-500 max-xl:ml-0 max-xl:justify-start">
                 {/* <motion.button
                   onClick={onPrev}
                   className="flex rotate-180 justify-end bg-violet-500 desktop:hidden"
@@ -165,7 +165,7 @@ const ServicesPage = () => {
                   onClick={onPrev}
                   variants={prevButtonVariant}
                   src={cardIndex === 0 ? grayArrow : orangeArrow}
-                  className="w-3/4 rotate-180 cursor-pointer  max-xl:w-1/4 desktop:hidden"
+                  className="w-1/4 rotate-180 cursor-pointer  max-xl:w-1/4 desktop:hidden"
                 />
                 {/* </motion.button> */}
                 {/* <motion.button
@@ -178,12 +178,12 @@ const ServicesPage = () => {
                   onClick={onNext}
                   variants={buttonVariants}
                   src={cardIndex === 3 ? grayArrow : orangeArrow}
-                  className="w-3/4 cursor-pointer max-xl:w-1/4 desktop:hidden"
+                  className="w-1/4 cursor-pointer max-xl:w-1/4 desktop:hidden"
                   disabled={cardIndex === 3 ? true : false}
                 />
                 {/* </motion.button> */}
               </motion.div>
-              <motion.div className=" pl-10 max-xl:relative max-xl:right-[7%] max-xl:pl-0 max-lg:right-[10%] max-md:right-[13%] max-sm:right-[10%]">
+              <motion.div className=" pl-0 max-xl:relative max-xl:right-[7%] max-lg:right-[10%] max-md:right-[13%] max-sm:right-[10%]">
                 <motion.ul
                   className="relative flex h-full w-[250px] items-center justify-center gap-2 "
                   variants={loadVariants}
@@ -234,6 +234,7 @@ const ServicesPage = () => {
       )}
       <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
       <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
+      <div className="pointer-events-none absolute bottom-0 top-0 -z-10 w-full bg-gradient-to-t from-gray-900/80 via-gray-500/50 to-gray-900/50 max-md:z-10" />
     </motion.div>
   );
 };

@@ -63,7 +63,7 @@ const ChooseUsPage = () => {
       <div className="relative h-full w-full">
         {/* TRIANGLE */}
         <motion.div
-          className="absolute bottom-72 right-[45%] z-10 h-full w-full max-xl:right-[55%] max-xl:bg-bgPrimary max-xl:opacity-75"
+          className="absolute bottom-72 right-[45%] z-10 h-full w-full max-xl:right-[45%] max-xl:bg-bgPrimary max-xl:opacity-75"
           style={{
             backgroundImage: `url(${Triangle})`,
             backgroundSize: "cover",
@@ -90,7 +90,7 @@ const ChooseUsPage = () => {
           variants={bgVariants}
           initial="initial"
           animate="animate"
-          className="absolute top-0 z-20 flex h-full w-[70%] flex-col justify-center gap-5 px-14 max-xl:w-[75%] max-xl:gap-3 "
+          className="absolute top-0 z-20 flex h-full w-[70%] flex-col justify-center gap-5 px-14 max-xl:w-[85%] max-xl:gap-3 max-md:w-full "
         >
           <motion.p
             variants={paraVariants}
