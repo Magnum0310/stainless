@@ -56,28 +56,16 @@ function App() {
   return (
     <motion.main className="relative h-full">
       {/* NAVBAR */}
-      <motion.div
-        className="containerBox h-screen snap-start snap-always"
-        id="home"
-      >
+      <motion.div className="containerBox h-screen" id="home">
         <LandingPage />
       </motion.div>
-      <motion.div
-        className="containerBox h-screen snap-start snap-always"
-        id="services"
-      >
+      <motion.div className="containerBox" id="services">
         <ServicesPage />
       </motion.div>
-      <motion.div
-        className="containerBox h-screen snap-start snap-always"
-        id="choose"
-      >
+      <motion.div className="containerBox h-screen" id="choose">
         <ChooseUsPage />
       </motion.div>
-      <motion.div
-        className="containerBox h-screen snap-start snap-always"
-        id="contact"
-      >
+      <motion.div className="containerBox h-screen" id="contact">
         <ContactPage />
       </motion.div>
     </motion.main>

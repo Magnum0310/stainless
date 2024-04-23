@@ -27,6 +27,9 @@ html {
   .padding-card {
     @apply px-1 py-1;
   }
+  .padding-servicepage {
+    @apply px-10 sm:px-12;
+  }
   .padding-x {
     @apply px-10 sm:px-20;
   }

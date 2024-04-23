@@ -219,13 +219,12 @@ const ServiceCard = () => {
           whileHover="animate"
           whileTap="animate"
           animate="initial"
-          className="relative z-10 m-5 flex w-[97%] flex-col items-center justify-center  bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 "
+          className="relative z-10 my-5 flex h-[95%] w-[97%] flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 "
           key={index}
         >
           {/* INNER CARD */}
           {/* INNER MOST CARD */}
-          {/* <div className="flex h-[99%] w-[99%] flex-col items-center justify-center bg-bgCard lg:px-0 desktop:px-5"> */}
-          <div className="flex h-full w-[100%] flex-col items-center justify-center bg-bgCard  lg:px-0 desktop:px-1">
+          <div className="flex h-full w-[100%] flex-col items-center justify-center bg-bgCard lg:px-0 desktop:px-1">
             <motion.div
               className="relative flex lg:flex-1"
               variants={childVariants}
