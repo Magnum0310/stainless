@@ -65,7 +65,6 @@ const ServicesPage = () => {
   };
 
   const [width, setWidth] = useState(window.innerWidth);
-  console.log(width);
 
   useEffect(() => {
     const handleResize = () => {
@@ -76,18 +75,6 @@ const ServicesPage = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  if (width <= 1200) {
-    console.log("Over 1200");
-  }
-
-  if (width <= 900) {
-    console.log("Over 900");
-  }
-
-  if (width <= 700) {
-    console.log("Over 700");
-  }
 
   const onNext = () => {
     if (cardIndex === 3) {
@@ -114,7 +101,7 @@ const ServicesPage = () => {
       initial="initial"
       animate="animate"
       // className="padding-x relative flex h-screen flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start"
-      className="padding-servicepage relative flex flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start"
+      className="padding-servicepage relative flex flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start max-md:h-screen"
     >
       {/* {isInView ? (
         <> */}
@@ -136,7 +123,8 @@ const ServicesPage = () => {
         className="relative z-10 my-10 flex h-full w-full overflow-hidden"
       >
         <motion.div
-          className="relative z-10 grid place-items-center max-desktop:grid-cols-4 max-desktop:grid-rows-2 max-2xl:grid-cols-2 max-2xl:bg-orange-500 max-xl:bg-green-500 max-lg:bg-gray-500 max-md:bg-orange-500 max-sm:bg-violet-500 desktop:h-full desktop:w-full"
+          // className="relative z-10 grid place-items-center max-desktop:grid-cols-4 max-desktop:grid-rows-2 max-2xl:grid-cols-2 max-2xl:grid-rows-4 max-2xl:bg-red-500 max-xl:bg-green-500 max-lg:bg-gray-500 max-md:bg-orange-500 max-sm:bg-violet-500 desktop:h-full desktop:w-full"
+          className="relative z-10 grid place-items-center max-desktop:grid-cols-4 max-desktop:grid-rows-2 max-2xl:grid-cols-2 max-2xl:grid-rows-4 desktop:h-full desktop:w-full"
           // Added - lg:grid-cols-8 lg:grid-rows-1, w-[2800px]
           // Modified - mdDesktop:w-[3500px] to max-mdDesktop:w-[3500px], xl:w-[3500px]
           // animate={{ translateX: `-${cardIndex * 24.5}%` }}
@@ -210,7 +198,7 @@ const ServicesPage = () => {
       } */}
       <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
       <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
-      <div className="pointer-events-none absolute bottom-0 top-0 -z-10 w-full bg-gradient-to-t from-gray-900/80 via-gray-500/50 to-gray-900/50 max-md:z-10" />
+      <div className="pointer-events-none absolute bottom-0 top-0 -z-10 w-full bg-gradient-to-t from-gray-900/80 via-gray-500/50 to-gray-900/50 " />
     </motion.div>
   );
 };

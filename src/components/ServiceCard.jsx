@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import gateOrange from "../assets/icons/gateOrange.svg";
 import gateBlack from "../assets/icons/gateBlack.svg";
@@ -25,6 +25,17 @@ const ServiceCard = () => {
     once: true,
     margin: "0px 100px -300px 0px",
   });
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const hoverVariant = {
     initial: { scale: 1, color: "white" },
@@ -39,7 +50,7 @@ const ServiceCard = () => {
   const titleVariants = {
     initial: {
       scale: 1.4,
-      y: "150%",
+      y: width <= 1280 ? "250%" : "150%",
       color: "white",
       transition: {
         delay: 0.4,
@@ -219,30 +230,34 @@ const ServiceCard = () => {
           whileHover="animate"
           whileTap="animate"
           animate="initial"
-          className="relative z-10 my-5 flex h-[95%] w-[97%] flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 "
+          className="relative z-10 my-5 flex h-[95%] w-[97%] flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 max-lg:overflow-hidden "
           key={index}
         >
           {/* INNER CARD */}
           {/* INNER MOST CARD */}
-          <div className="flex h-full w-[100%] flex-col items-center justify-center bg-bgCard lg:px-0 desktop:px-1">
+          <div className="flex h-full  w-[100%] items-center justify-center bg-bgCard max-2xl:items-stretch max-lg:overflow-hidden lg:px-0 2xl:flex-col desktop:px-1">
             <motion.div
-              className="relative flex lg:flex-1"
-              variants={childVariants}
+              className="relative flex max-2xl:basis-2/5 max-lg:absolute max-lg:bottom-0 max-lg:top-0 max-lg:z-10 "
+              variants={width <= 1024 ? null : childVariants}
             >
-              <img src={service.icon} className="aspect-[2/1] object-contain" />
+              <img
+                src={service.icon}
+                // className="aspect-[2/1] bg-red-500 object-contain max-lg:aspect-video max-lg:scale-90 max-lg:opacity-50 max-md:scale-75 max-sm:scale-50"
+                className="aspect-[2/1] object-contain max-lg:aspect-video max-lg:scale-75 max-lg:opacity-50 max-md:scale-75 max-sm:scale-50"
+              />
             </motion.div>
-            <div className="relative flex flex-col items-center justify-center lg:flex-1">
+            <div className="relative flex flex-col items-center justify-center max-lg:z-20 lg:flex-1">
               <motion.div
                 variants={titleVariants}
-                className="flex w-full items-center justify-center font-Alfa text-xl max-xl:basis-10 max-md:text-sm desktop:basis-0"
+                className="flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base max-md:text-sm max-sm:text-xs desktop:basis-0"
               >
                 <p className="tracking-wide">{service.title}</p>
               </motion.div>
               <motion.div
                 variants={descriptionVariants}
-                className="flex items-center justify-center px-2 max-xl:pb-10 max-xl:pt-5 desktop:px-0"
+                className="flex items-center justify-center px-2 desktop:px-0"
               >
-                <p className="text-center font-Belgrano text-base">
+                <p className="text-center font-Belgrano text-base max-md:text-xs">
                   {service.description}
                 </p>
               </motion.div>
