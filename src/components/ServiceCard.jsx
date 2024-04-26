@@ -26,6 +26,7 @@ const ServiceCard = () => {
     margin: "0px 100px -300px 0px",
   });
   const [width, setWidth] = useState(window.innerWidth);
+  const [isActive, setActive] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,6 +47,10 @@ const ServiceCard = () => {
     initial: { scale: 0.6, y: 0, transition: { duration: 0.3 } },
     animate: { scale: 0.7, y: 0, transition: { duration: 0.3 } },
   };
+  const inactiveChildVariants = {
+    initial: { scale: 0.7, y: 0, transition: { duration: 0.3 } },
+    animate: { scale: 0.6, y: 0, transition: { duration: 0.3 } },
+  };
 
   const titleVariants = {
     initial: {
@@ -65,6 +70,30 @@ const ServiceCard = () => {
       y: "0%",
       transition: {
         delay: 0.1,
+        type: "tween",
+        ease: "anticipate",
+        duration: 0.5,
+      },
+    },
+  };
+  const inactiveTitleVariants = {
+    initial: {
+      scale: 1,
+      color: "white",
+      y: "0%",
+      transition: {
+        delay: 0.1,
+        type: "tween",
+        ease: "anticipate",
+        duration: 0.5,
+      },
+    },
+    animate: {
+      scale: 1.4,
+      y: width <= 1280 ? "250%" : "150%",
+      color: "white",
+      transition: {
+        delay: 0.4,
         type: "tween",
         ease: "anticipate",
         duration: 0.5,
@@ -94,6 +123,28 @@ const ServiceCard = () => {
       },
     },
   };
+  const inactiveDescriptionVariants = {
+    initial: {
+      y: "10%",
+      opacity: 1,
+      transition: {
+        color: "white",
+        delay: 0.3,
+        duration: 0.3,
+      },
+    },
+    animate: {
+      y: "20%",
+      opacity: 0,
+      transition: {
+        color: "transparent",
+        delay: 0.1,
+        type: "tween",
+        ease: "anticipate",
+        duration: 0.5,
+      },
+    },
+  };
 
   const handleStartHover = (e) => {
     console.log(e.target.getAttribute("value"));
@@ -107,6 +158,7 @@ const ServiceCard = () => {
 
   const services = [
     {
+      id: 0,
       icon: gateOrange,
       active: gateBlack,
       title: "Gates & Fences",
@@ -114,6 +166,7 @@ const ServiceCard = () => {
         "Secure your premises while adding a touch of elegance with our high-quality stainless steel gates and fences.",
     },
     {
+      id: 1,
       icon: fenceOrange,
       active: fenceBlack,
       title: "Railings",
@@ -121,6 +174,7 @@ const ServiceCard = () => {
         "Elevate the aesthetics and safety of your spaces with our custom stainless steel railings designed to suit your style and specifications.",
     },
     {
+      id: 2,
       icon: bakeryOrange,
       active: bakeryBlack,
       title: "Bakery Equipment",
@@ -128,6 +182,7 @@ const ServiceCard = () => {
         "Enhance your bakery operations with our range of stainless steel bakery equipment, from worktables and racks to display cases and ovens.",
     },
     {
+      id: 3,
       icon: kitchenOrange,
       active: kitchenBlack,
       title: "Kitchen Equipment",
@@ -135,6 +190,7 @@ const ServiceCard = () => {
         "Equip your kitchen with top-of-the-line stainless steel equipment, including sinks, shelves, counter tops, and more, designed for durability and functionality.",
     },
     {
+      id: 4,
       icon: tablesChairsOrange,
       active: tablesChairsBlack,
       title: "Tables & Chairs",
@@ -142,6 +198,7 @@ const ServiceCard = () => {
         "Explore our selection of stainless steel tables and chairs, perfect for both indoor and outdoor use in commercial and residential settings.",
     },
     {
+      id: 5,
       icon: signageOrange,
       active: signageBlack,
       title: "Letter/Signage",
@@ -149,6 +206,7 @@ const ServiceCard = () => {
         "Make a statement with our stainless steel lettering and signage solutions, customized to reflect your brand identity or personal style.",
     },
     {
+      id: 6,
       icon: grillOrange,
       active: grillBlack,
       title: "Grills",
@@ -156,6 +214,7 @@ const ServiceCard = () => {
         "Enhance the security and appeal of your property with our durable stainless steel grills available in various designs and finishes.",
     },
     {
+      id: 7,
       icon: blindsOrange,
       active: blindsBlack,
       title: "Korean Blinds",
@@ -164,6 +223,7 @@ const ServiceCard = () => {
     },
   ];
 
+  console.log(isActive);
   return (
     <>
       {services.map((service, index) => (
@@ -226,12 +286,15 @@ const ServiceCard = () => {
         <motion.div
           // Now adding responsive for 1280px screens
           ref={scrollRef}
-          variants={hoverVariant}
-          whileHover="animate"
-          whileTap="animate"
-          animate="initial"
-          className="relative z-10 my-5 flex h-[95%] w-[97%] flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 max-lg:overflow-hidden "
           key={index}
+          variants={hoverVariant}
+          // whileHover="animate"
+          initial="initial"
+          // animate="initial"
+          animate={isActive && service.id ? null : "animate"}
+          onClick={() => setActive(!isActive)}
+          // onClick={() => console.log(service.id)}
+          className="relative z-10 my-5 flex h-[95%] w-[97%] flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 max-lg:overflow-hidden "
         >
           {/* INNER CARD */}
           {/* INNER MOST CARD */}
@@ -246,18 +309,20 @@ const ServiceCard = () => {
                 className="aspect-[2/1] object-contain max-lg:aspect-video max-lg:scale-75 max-lg:opacity-50 max-md:scale-75 max-sm:scale-50"
               />
             </motion.div>
-            <div className="relative flex flex-col items-center justify-center max-lg:z-20 lg:flex-1">
+            <div className="relative flex flex-col items-center justify-center max-lg:z-20 max-sm:justify-evenly lg:flex-1">
               <motion.div
-                variants={titleVariants}
-                className="flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base max-md:text-sm max-sm:text-xs desktop:basis-0"
+                variants={isActive ? titleVariants : inactiveTitleVariants}
+                className="max-sm:text-smalltitle flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base  max-md:text-sm max-sm:text-center desktop:basis-0"
               >
                 <p className="tracking-wide">{service.title}</p>
               </motion.div>
               <motion.div
-                variants={descriptionVariants}
+                variants={
+                  isActive ? descriptionVariants : inactiveDescriptionVariants
+                }
                 className="flex items-center justify-center px-2 desktop:px-0"
               >
-                <p className="text-center font-Belgrano text-base max-md:text-xs">
+                <p className="max-sm:text-smalldescription text-center font-Belgrano text-base max-md:text-xs">
                   {service.description}
                 </p>
               </motion.div>

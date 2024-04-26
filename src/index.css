@@ -54,6 +54,12 @@ html {
   .text-choose-description {
     @apply text-lg max-xl:text-base max-sm:text-sm;
   }
+  .text-smalltitle {
+    @apply text-[.6rem] leading-4;
+  }
+  .text-smalldescription {
+    @apply text-[.5rem] leading-4;
+  }
   #main::-webkit-scrollbar {
     display: none;
   }
