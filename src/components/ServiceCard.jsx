@@ -223,7 +223,17 @@ const ServiceCard = () => {
     },
   ];
 
+  const checkActive = (e, index) => {
+    console.log(e.currentTarget.id);
+    console.log(index);
+    const currentId = e.currentTarget.id;
+    if (currentId === index) {
+      setActive(!isActive);
+    } else setActive(isActive);
+  };
+
   console.log(isActive);
+
   return (
     <>
       {services.map((service, index) => (
@@ -287,18 +297,19 @@ const ServiceCard = () => {
           // Now adding responsive for 1280px screens
           ref={scrollRef}
           key={index}
+          id={index}
           variants={hoverVariant}
           // whileHover="animate"
           initial="initial"
           // animate="initial"
-          animate={isActive && service.id ? null : "animate"}
-          onClick={() => setActive(!isActive)}
-          // onClick={() => console.log(service.id)}
+          animate={isActive ? null : "animate"}
+          onClick={(e) => checkActive(e, index)}
+          // onClick={(e) => console.log(e.currentTarget.id)}
           className="relative z-10 my-5 flex h-[95%] w-[97%] flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 max-lg:overflow-hidden "
         >
           {/* INNER CARD */}
           {/* INNER MOST CARD */}
-          <div className="flex h-full  w-[100%] items-center justify-center bg-bgCard max-2xl:items-stretch max-lg:overflow-hidden lg:px-0 2xl:flex-col desktop:px-1">
+          <div className="flex h-full w-[100%] items-center justify-center bg-bgCard max-2xl:items-stretch max-lg:overflow-hidden lg:px-0 2xl:flex-col desktop:px-1">
             <motion.div
               className="relative flex max-2xl:basis-2/5 max-lg:absolute max-lg:bottom-0 max-lg:top-0 max-lg:z-10 "
               variants={width <= 1024 ? null : childVariants}
