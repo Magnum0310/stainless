@@ -101,7 +101,7 @@ const ServicesPage = () => {
       initial="initial"
       animate="animate"
       // className="padding-x relative flex h-screen flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start"
-      className="padding-servicepage relative flex flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start max-md:h-screen"
+      className="padding-servicepage relative flex flex-col items-center justify-center overflow-hidden bg-bgSecondary max-desktop:items-start max-md:h-screen max-sm:h-max"
     >
       {/* {isInView ? (
         <> */}
@@ -124,7 +124,7 @@ const ServicesPage = () => {
       >
         <motion.div
           // className="relative z-10 grid place-items-center max-desktop:grid-cols-4 max-desktop:grid-rows-2 max-2xl:grid-cols-2 max-2xl:grid-rows-4 max-2xl:bg-red-500 max-xl:bg-green-500 max-lg:bg-gray-500 max-md:bg-orange-500 max-sm:bg-violet-500 desktop:h-full desktop:w-full"
-          className="relative z-10 grid place-items-center max-desktop:grid-cols-4 max-desktop:grid-rows-2 max-2xl:grid-cols-2 max-2xl:grid-rows-4 desktop:h-full desktop:w-full"
+          className="relative z-10 grid place-items-center max-desktop:grid-cols-4 max-desktop:grid-rows-2 max-2xl:grid-cols-2 max-2xl:grid-rows-4  max-sm:flex max-sm:h-[500%] max-sm:flex-col  desktop:h-full desktop:w-full"
           // Added - lg:grid-cols-8 lg:grid-rows-1, w-[2800px]
           // Modified - mdDesktop:w-[3500px] to max-mdDesktop:w-[3500px], xl:w-[3500px]
           // animate={{ translateX: `-${cardIndex * 24.5}%` }}

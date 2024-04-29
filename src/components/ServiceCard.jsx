@@ -27,6 +27,7 @@ const ServiceCard = () => {
   });
   const [width, setWidth] = useState(window.innerWidth);
   const [isActive, setActive] = useState(false);
+  const [isIndex, setIndex] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -224,15 +225,15 @@ const ServiceCard = () => {
   ];
 
   const checkActive = (e, index) => {
-    console.log(e.currentTarget.id);
-    console.log(index);
-    const currentId = e.currentTarget.id;
+    const currentId = Number(e.currentTarget.id);
     if (currentId === index) {
+      setIndex(index);
       setActive(!isActive);
-    } else setActive(isActive);
+    }
   };
 
   console.log(isActive);
+  console.log(isIndex);
 
   return (
     <>
@@ -292,27 +293,24 @@ const ServiceCard = () => {
         //     </div>
         //   </div>
         // </motion.div>
-
         <motion.div
           // Now adding responsive for 1280px screens
           ref={scrollRef}
           key={index}
           id={index}
           variants={hoverVariant}
-          // whileHover="animate"
-          initial="initial"
-          // animate="initial"
-          animate={isActive ? null : "animate"}
+          whileHover={width >= 1024 ? "animate" : null}
+          animate={isActive && service.id == isIndex ? null : "initial"}
           onClick={(e) => checkActive(e, index)}
-          // onClick={(e) => console.log(e.currentTarget.id)}
           className="relative z-10 my-5 flex h-[95%] w-[97%] flex-col items-center justify-center bg-gradient-to-t from-orange-500 via-amber-300 to-amber-400 p-[2px] text-white max-desktop:ml-0 max-lg:overflow-hidden "
         >
           {/* INNER CARD */}
           {/* INNER MOST CARD */}
-          <div className="flex h-full w-[100%] items-center justify-center bg-bgCard max-2xl:items-stretch max-lg:overflow-hidden lg:px-0 2xl:flex-col desktop:px-1">
+          <div className="flex h-full w-[100%] items-center justify-center bg-bgCard max-2xl:items-stretch max-lg:overflow-hidden max-sm:h-[20rem] lg:px-0 2xl:flex-col desktop:px-1">
             <motion.div
               className="relative flex max-2xl:basis-2/5 max-lg:absolute max-lg:bottom-0 max-lg:top-0 max-lg:z-10 "
-              variants={width <= 1024 ? null : childVariants}
+              // variants={width <= 1024 ? null : childVariants}
+              variants={childVariants}
             >
               <img
                 src={service.icon}
@@ -322,18 +320,20 @@ const ServiceCard = () => {
             </motion.div>
             <div className="relative flex flex-col items-center justify-center max-lg:z-20 max-sm:justify-evenly lg:flex-1">
               <motion.div
-                variants={isActive ? titleVariants : inactiveTitleVariants}
-                className="max-sm:text-smalltitle flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base  max-md:text-sm max-sm:text-center desktop:basis-0"
+                // variants={isActive ? titleVariants : inactiveTitleVariants}
+                variants={titleVariants}
+                className="flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base max-md:text-sm max-sm:text-center max-sm:text-base desktop:basis-0"
               >
                 <p className="tracking-wide">{service.title}</p>
               </motion.div>
               <motion.div
-                variants={
-                  isActive ? descriptionVariants : inactiveDescriptionVariants
-                }
+                // variants={
+                //   isActive ? descriptionVariants : inactiveDescriptionVariants
+                // }
+                variants={descriptionVariants}
                 className="flex items-center justify-center px-2 desktop:px-0"
               >
-                <p className="max-sm:text-smalldescription text-center font-Belgrano text-base max-md:text-xs">
+                <p className="text-center font-Belgrano text-base max-md:text-xs max-sm:text-sm">
                   {service.description}
                 </p>
               </motion.div>
