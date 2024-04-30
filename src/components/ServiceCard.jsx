@@ -56,7 +56,7 @@ const ServiceCard = () => {
   const titleVariants = {
     initial: {
       scale: 1.4,
-      y: width <= 1280 ? "275%" : "150%",
+      y: width <= 1024 ? "180%" : "150%",
       color: "white",
       transition: {
         delay: 0.4,
@@ -315,14 +315,14 @@ const ServiceCard = () => {
               <img
                 src={service.icon}
                 // className="aspect-[2/1] bg-red-500 object-contain max-lg:aspect-video max-lg:scale-90 max-lg:opacity-50 max-md:scale-75 max-sm:scale-50"
-                className="aspect-[2/1] object-contain max-lg:aspect-video max-lg:scale-75 max-lg:opacity-50 max-md:scale-75 max-sm:scale-50"
+                className="aspect-[2/1] object-contain max-lg:aspect-video max-lg:scale-75 max-lg:opacity-70 max-md:scale-75 max-sm:scale-50"
               />
             </motion.div>
-            <div className="relative flex flex-col items-center justify-center max-2xl:pr-5 max-lg:z-20 max-lg:justify-evenly max-lg:pr-0 lg:flex-1 ">
+            <div className="relative flex flex-col items-center max-2xl:justify-center max-2xl:pr-0 max-lg:z-20 max-lg:gap-5 max-lg:pr-0 lg:flex-1 ">
               <motion.div
                 // variants={isActive ? titleVariants : inactiveTitleVariants}
                 variants={titleVariants}
-                className="ax-md:text-sm flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base max-sm:text-center max-sm:text-base desktop:basis-0"
+                className="flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base max-lg:mb-0 max-md:text-sm max-sm:text-center max-sm:text-base desktop:basis-0"
               >
                 <p className="tracking-wide">{service.title}</p>
               </motion.div>
