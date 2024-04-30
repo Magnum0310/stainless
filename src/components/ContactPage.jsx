@@ -122,7 +122,7 @@ const ContactPage = () => {
             <p className="flex items-center justify-center gap-5">
               <motion.span
                 variants={contactTextVariant}
-                className="font-Alfa text-[64px] text-orangeColor max-xl:text-[52px] max-xl:text-blue-500 max-lg:text-green-500 max-md:text-violet-500 max-sm:text-4xl max-sm:text-red-500"
+                className="font-Alfa text-[64px] text-orangeColor max-xl:text-[52px]  max-sm:text-4xl "
               >
                 Contact
               </motion.span>
@@ -180,7 +180,7 @@ const ContactPage = () => {
           </motion.svg> */}
           <motion.a
             href="#home"
-            className="relative top-10 flex  justify-center rounded-full border-2 border-white p-4 font-Belgrano font-bold text-white hover:text-black"
+            className="relative top-10 flex justify-center rounded-full border-2 border-orangeColor p-4 font-Belgrano font-bold text-white hover:text-black"
             variants={contactTextVariant}
             transition={{ duration: 0.2 }}
             whileHover={{

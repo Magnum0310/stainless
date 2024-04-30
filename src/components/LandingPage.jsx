@@ -95,7 +95,7 @@ const LandingPage = () => {
             <div className="relative flex  max-md:w-full max-md:flex-col">
               <motion.p
                 variants={textVariants}
-                className="max font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl max-xl:text-blue-500 max-lg:text-6xl max-lg:text-green-500 max-md:text-8xl max-md:text-orange-500 max-sm:text-6xl max-sm:text-red-500"
+                className="max font-Alfa text-8xl tracking-wider text-white max-xl:text-7xl  max-lg:text-6xl  max-md:text-8xl  max-sm:text-6xl "
               >
                 Aries{" "}
               </motion.p>

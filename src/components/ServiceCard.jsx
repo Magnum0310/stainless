@@ -56,7 +56,7 @@ const ServiceCard = () => {
   const titleVariants = {
     initial: {
       scale: 1.4,
-      y: width <= 1280 ? "250%" : "150%",
+      y: width <= 1280 ? "275%" : "150%",
       color: "white",
       transition: {
         delay: 0.4,
@@ -306,11 +306,11 @@ const ServiceCard = () => {
         >
           {/* INNER CARD */}
           {/* INNER MOST CARD */}
-          <div className="flex h-full w-[100%] items-center justify-center bg-bgCard max-2xl:items-stretch max-lg:overflow-hidden max-sm:h-[20rem] lg:px-0 2xl:flex-col desktop:px-1">
+          <div className="flex h-full w-[100%] items-center justify-center bg-bgCard max-2xl:items-stretch  max-lg:overflow-hidden max-sm:h-[20rem] lg:px-0 2xl:flex-col desktop:px-1">
             <motion.div
-              className="relative flex max-2xl:basis-2/5 max-lg:absolute max-lg:bottom-0 max-lg:top-0 max-lg:z-10 "
-              // variants={width <= 1024 ? null : childVariants}
-              variants={childVariants}
+              className="relative flex max-2xl:basis-2/5 max-2xl:px-5 max-2xl:py-5 max-lg:absolute max-lg:bottom-0 max-lg:top-0 max-lg:z-10 max-lg:py-0 max-md:px-0"
+              variants={width <= 1024 ? null : childVariants}
+              // variants={childVariants}
             >
               <img
                 src={service.icon}
@@ -318,11 +318,11 @@ const ServiceCard = () => {
                 className="aspect-[2/1] object-contain max-lg:aspect-video max-lg:scale-75 max-lg:opacity-50 max-md:scale-75 max-sm:scale-50"
               />
             </motion.div>
-            <div className="relative flex flex-col items-center justify-center max-lg:z-20 max-sm:justify-evenly lg:flex-1">
+            <div className="relative flex flex-col items-center justify-center max-2xl:pr-5 max-lg:z-20 max-lg:justify-evenly max-lg:pr-0 lg:flex-1 ">
               <motion.div
                 // variants={isActive ? titleVariants : inactiveTitleVariants}
                 variants={titleVariants}
-                className="flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base max-md:text-sm max-sm:text-center max-sm:text-base desktop:basis-0"
+                className="ax-md:text-sm flex w-max items-center justify-center font-Alfa text-xl max-xl:text-base max-sm:text-center max-sm:text-base desktop:basis-0"
               >
                 <p className="tracking-wide">{service.title}</p>
               </motion.div>
@@ -333,7 +333,7 @@ const ServiceCard = () => {
                 variants={descriptionVariants}
                 className="flex items-center justify-center px-2 desktop:px-0"
               >
-                <p className="text-center font-Belgrano text-base max-md:text-xs max-sm:text-sm">
+                <p className="text-center font-Belgrano text-base max-md:text-xs max-sm:text-sm max-sm:font-bold">
                   {service.description}
                 </p>
               </motion.div>
