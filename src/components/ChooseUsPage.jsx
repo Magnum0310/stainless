@@ -151,10 +151,8 @@ const ChooseUsPage = () => {
         <></>
       )}
       <div className="absolute bottom-64 top-12 z-10 w-[8%] bg-darkGray text-2xl text-white"></div>
-      <div className="absolute bottom-0 left-[33rem] top-[60%] z-30 w-[18%] bg-lightGray text-2xl text-white opacity-40 max-xl:-right-20 max-xl:left-auto max-xl:w-[30rem] max-md:w-[15rem]" />
-      {/* <div className="absolute bottom-0 left-[33%] top-[60%] z-30 w-[18%] bg-lightGray text-2xl text-white  opacity-40 max-xl:left-[53%] max-xl:w-[30rem] max-md:w-[15rem]" /> */}
-      <div className="absolute bottom-0 left-[40rem] top-[70%] z-20 w-[18%] bg-darkGray text-2xl text-white opacity-40 max-xl:left-auto max-xl:right-0 max-xl:w-[30rem] max-md:w-[20rem]" />
-      {/* <div className="absolute bottom-0 left-[40%] top-[70%] z-20 w-[18%] bg-darkGray text-2xl text-white opacity-40 max-xl:left-[70%] max-xl:w-[30rem] max-md:w-[20rem]" /> */}
+      <div className="absolute bottom-0 left-[33rem] top-[60%] z-20 w-[18%] bg-lightGray text-2xl text-white opacity-40 max-xl:-right-20 max-xl:left-auto max-xl:w-[30rem] max-md:w-[15rem]" />
+      <div className="absolute bottom-0 left-[40rem] top-[70%] z-10 w-[18%] bg-darkGray text-2xl text-white opacity-40 max-xl:left-auto max-xl:right-0 max-xl:w-[30rem] max-md:w-[20rem]" />
       <div className="pointer-events-none absolute bottom-0 left-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-r from-neutral-950/50 to-neutral-950/0" />
       <div className="pointer-events-none absolute bottom-0 right-0 top-0  w-[10vw] max-w-[100px] bg-gradient-to-l from-neutral-950/50 to-neutral-950/0" />
     </div>
